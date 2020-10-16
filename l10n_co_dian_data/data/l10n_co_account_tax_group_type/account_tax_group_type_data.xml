@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="account.tax.group.type" id="account_tax_group_type_co_01">
+            <field name="code">01</field>
+            <field name="name">IVA</field>
+            <field name="type">tax</field>
+            <field name="description">Impuesto sobre la Ventas</field>
+        </record>
+
+        <record model="account.tax.group.type" id="account_tax_group_type_co_02">
+            <field name="code">02</field>
+            <field name="name">IC</field>
+            <field name="type">tax</field>
+            <field name="description">Impuesto al Consumo Departamental</field>
+        </record>
+
+        <record model="account.tax.group.type" id="account_tax_group_type_co_03">
+            <field name="code">03</field>
+            <field name="name">ICA</field>
+            <field name="type">tax</field>
+            <field name="description">Impuesto de Industria, Comercio y Aviso</field>
+        </record>
+
+        <record model="account.tax.group.type" id="account_tax_group_type_co_04">
+            <field name="code">04</field>
+            <field name="name">INC</field>
+            <field name="type">tax</field>
+            <field name="description">Impuesto Nacional al Consumo</field>
+        </record>
+
+        <record model="account.tax.group.type" id="account_tax_group_type_co_05">
+            <field name="code">05</field>
+            <field name="name">ReteIVA</field>
+            <field name="type">withholding_tax</field>
+            <field name="description">Retención sobre el IVA</field>
+        </record>
+
+        <record model="account.tax.group.type" id="account_tax_group_type_co_06">
+            <field name="code">06</field>
+            <field name="name">ReteRenta</field>
+            <field name="type">withholding_tax</field>
+            <field name="description">Retención sobre Renta</field>
+        </record>
+
+        <record model="account.tax.group.type" id="account_tax_group_type_co_07">
+            <field name="code">07</field>
+            <field name="name">ReteICA</field>
+            <field name="type">withholding_tax</field>
+            <field name="description">Retención sobre el ICA</field>
+        </record>
+
+        <record model="account.tax.group.type" id="account_tax_group_type_co_20">
+            <field name="code">20</field>
+            <field name="name">FtoHorticultura</field>
+            <field name="type">tax</field>
+            <field name="description">Cuota de Fomento Hortifrutícula</field>
+        </record>
+
+        <record model="account.tax.group.type" id="account_tax_group_type_co_21">
+            <field name="code">21</field>
+            <field name="name">Timbre</field>
+            <field name="type">tax</field>
+            <field name="description">Impuesto de Timbre</field>
+        </record>
+
+        <record model="account.tax.group.type" id="account_tax_group_type_co_22">
+            <field name="code">22</field>
+            <field name="name">INC Bolsas</field>
+            <field name="type">tax</field>
+            <field name="description">Impuesto Nacional al Consumo de Bolsa Plástica</field>
+        </record>
+
+        <record model="account.tax.group.type" id="account_tax_group_type_co_23">
+            <field name="code">23</field>
+            <field name="name">INCarbono</field>
+            <field name="type">tax</field>
+            <field name="description">Impuesto Nacional del Carbono</field>
+        </record>
+
+        <record model="account.tax.group.type" id="account_tax_group_type_co_24">
+            <field name="code">24</field>
+            <field name="name">INCombustibles</field>
+            <field name="type">tax</field>
+            <field name="description">Impuesto Nacional a los Combustibles</field>
+        </record>
+
+        <record model="account.tax.group.type" id="account_tax_group_type_co_25">
+            <field name="code">25</field>
+            <field name="name">Sobretasa Combustibles</field>
+            <field name="type">tax</field>
+            <field name="description">Sobretasa a los combustibles</field>
+        </record>
+
+        <record model="account.tax.group.type" id="account_tax_group_type_co_26">
+            <field name="code">26</field>
+            <field name="name">Sordicom</field>
+            <field name="type">tax</field>
+            <field name="description">Contribución minoristas (Combustibles)</field>
+        </record>
+
+        <record model="account.tax.group.type" id="account_tax_group_type_co_ZZ">
+            <field name="code">ZZ</field>
+            <field name="name">Nombre de la figura tributaria</field>
+            <field name="type">tax</field>
+            <field name="description">Otros tributos, tasas, contribuciones, y similares</field>
+        </record>
+    </data>
+</odoo>

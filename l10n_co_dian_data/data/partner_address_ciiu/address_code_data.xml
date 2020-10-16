@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Colombia Address Code -->
+        <record id="co_add_code_001" model="address.code">
+            <field name="name">Avenida Calle</field>
+            <field name="code">AC</field>
+        </record>
+
+        <record id="co_add_code_002" model="address.code">
+            <field name="name">Administración</field>
+            <field name="code">AD</field>
+        </record>
+
+        <record id="co_add_code_003" model="address.code">
+            <field name="name">Adelante</field>
+            <field name="code">ADL</field>
+        </record>
+
+        <record id="co_add_code_004" model="address.code">
+            <field name="name">Aeropuerto</field>
+            <field name="code">AER</field>
+        </record>
+
+    </data>
+</odoo>

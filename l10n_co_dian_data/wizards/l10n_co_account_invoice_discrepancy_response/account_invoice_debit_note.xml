@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+        <record id="account_invoice_debit_note_view" model="ir.ui.view">
+            <field name="model">account.invoice.debit.note</field>
+            <field name="arch" type="xml">
+                <form string="Debit Note">
+                    <group>
+                        <group>
+                             <field name="filter_debit_note" widget="radio"/>
+                        </group>
+                        <group>
+                            <div class="oe_grey" colspan="4">
+                                You will be able to edit and validate this
+                                debit note directly or keep it draft,
+                                waiting for the document to be issued by
+                                your supplier/customer.
+                            </div>
+                        </group>
+                        <group>
+                            <field name="discrepancy_response_code_id"
+                                options="{'no_create': True}"
+                                required="1"
+                                domain="[('type', '=', 'debit')]"/>
+                            <field name="description"/>
+                        </group>
+                        <group>
+                            <field name="date_invoice"/>
+                            <field name="date" groups="base.group_no_one"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string='Create Debit Note'
+                            name="invoice_debit_note"
+                            type="object"
+                            class="btn-primary"/>
+                        <button string="Cancel"
+                            class="btn-default"
+                            special="cancel"/>
+                    </footer>
+               </form>
+            </field>
+        </record>
+
+    <record id="account_invoice_debit_note_action" model="ir.actions.act_window">
+            <field name="name">Debit Note Invoice</field>
+            <field name="res_model">account.invoice.debit.note</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="account_invoice_debit_note_view"/>
+            <field name="target">new</field>
+        </record>
+
+</odoo>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AttachedDocument xmlns="urn:oasis:names:specification:ubl:schema:xsd:AttachedDocument-2"
+    xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+    xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+    xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+    xmlns:ccts="urn:un:unece:uncefact:data:specification:CoreComponentTypeSchemaModule:2"
+    xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
+    xmlns:xades="http://uri.etsi.org/01903/v1.3.2#" xmlns:xades141="http://uri.etsi.org/01903/v1.4.1#">
+    <cbc:UBLVersionID>UBL 2.1</cbc:UBLVersionID>
+    <cbc:CustomizationID>Documentos adjuntos</cbc:CustomizationID>
+    <cbc:ProfileID>Factura ELectrónica de Venta</cbc:ProfileID> <!--de aqui para arriba dejar todo como está-->
+    <cbc:ProfileExecutionID>{{ProfileExecutionID}}</cbc:ProfileExecutionID> <!-- usar 1 para producción y 2 para pruebas-->
+    <cbc:ID>{{ID}}</cbc:ID> <!-- este ID debe generarlo usted porque es consecutivo propio del contenedor-->
+    <cbc:IssueDate>{{IssueDate}}</cbc:IssueDate>
+	<cbc:IssueTime>{{IssueTime}}</cbc:IssueTime>
+    <cbc:DocumentType>Contenedor de Factura Electrónica</cbc:DocumentType> <!--dejar como está-->
+    <cbc:ParentDocumentID>{{ID}}</cbc:ParentDocumentID> <!-- Usar el mismo campo que usa el xml de invoice en la línea 131 o usar el BillingReference de la NC o ND-->
+    <cac:SenderParty>
+        <cac:PartyTaxScheme> <!--datos del proveedor (el que vende)-->
+            <cbc:RegistrationName>{{AccountingSupplierParty.Name}}</cbc:RegistrationName>
+            <cbc:CompanyID schemeAgencyID="195"
+					schesmeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)"
+					schemeID="{{AccountingSupplierParty.CompanyIDschemeID}}"
+					schemeName="{{AccountingSupplierParty.CompanyIDschemeName}}">{{AccountingSupplierParty.CompanyID}}</cbc:CompanyID>
+         <!-- dejar el schemeAgencyID como está-->
+            <cbc:TaxLevelCode listName="48">{{AccountingSupplierParty.TaxLevelCode}}</cbc:TaxLevelCode>
+            <cac:TaxScheme>
+					<cbc:ID>{{AccountingSupplierParty.TaxSchemeID}}</cbc:ID>
+					<cbc:Name>{{AccountingSupplierParty.TaxSchemeName}}</cbc:Name>
+				</cac:TaxScheme>
+        </cac:PartyTaxScheme>
+    </cac:SenderParty>
+    <cac:ReceiverParty>
+        <cac:PartyTaxScheme>
+            <cbc:RegistrationName>{{AccountingCustomerParty.Name}}</cbc:RegistrationName>
+            <cbc:CompanyID schemeAgencyID="195"
+					schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)"
+					schemeID="{{AccountingSupplierParty.CompanyIDschemeID}}"
+					schemeName="{{AccountingSupplierParty.CompanyIDschemeName}}">{{AccountingSupplierParty.CompanyID}}</cbc:CompanyID>
+            <cbc:TaxLevelCode listName="{{AccountingCustomerParty.listName}}">{{AccountingCustomerParty.TaxLevelCode}}</cbc:TaxLevelCode>
+            <cac:TaxScheme>
+				<cbc:ID>{{AccountingCustomerParty.TaxSchemeID}}</cbc:ID>
+				<cbc:Name>{{AccountingCustomerParty.TaxSchemeName}}</cbc:Name>
+			</cac:TaxScheme>
+        </cac:PartyTaxScheme>
+    </cac:ReceiverParty>
+    <cac:Attachment>
+        <cac:ExternalReference>
+            <cbc:MimeCode>text/xml</cbc:MimeCode>
+            <cbc:EncodingCode>UTF-8</cbc:EncodingCode>
+            <cbc:Description>
+                <![CDATA[{{xml_file}}]]>
+            </cbc:Description>
+        </cac:ExternalReference>
+    </cac:Attachment>
+    <cac:ParentDocumentLineReference>
+        <cbc:LineID>1</cbc:LineID>
+        <cac:DocumentReference>
+            <cbc:ID>{{ID}}</cbc:ID>
+            <cbc:UUID schemeName="{% if InvoiceTypeCode != '03' %}CUFE-SHA384{% else %}CUDE-SHA384{% endif %}">{{UUID}}</cbc:UUID>
+            <cbc:IssueDate>{{IssueDate}}</cbc:IssueDate>
+            <cbc:DocumentType>ApplicationResponse</cbc:DocumentType>
+            <cac:Attachment>
+                <cac:ExternalReference>
+                    <cbc:MimeCode>text/xml</cbc:MimeCode>
+                    <cbc:EncodingCode>UTF-8</cbc:EncodingCode>
+                    <cbc:Description>
+                         <![CDATA[
+                         {{ApplicationResponse}}
+                         ]]>
+                    </cbc:Description>
+                </cac:ExternalReference>
+            </cac:Attachment>
+            <cac:ResultOfVerification>
+                <cbc:ValidatorID>Unidad Especial Dirección de Impuestos y Aduanas Nacionales</cbc:ValidatorID>
+                <cbc:ValidationResultCode>002</cbc:ValidationResultCode>
+                <cbc:ValidationDate>{{IssueDate}}</cbc:ValidationDate>
+                <cbc:ValidationTime>{{IssueTime}}</cbc:ValidationTime>
+            </cac:ResultOfVerification>
+        </cac:DocumentReference>
+    </cac:ParentDocumentLineReference>
+</AttachedDocument>

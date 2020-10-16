@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+        <record id="account_fiscal_position_tax_level_code_o_13" model="account.fiscal.position.tax.level.code">
+            <field name="name">Gran contribuyente</field>
+            <field name="code">O-13</field>
+        </record>
+        <record id="account_fiscal_position_tax_level_code_o_15" model="account.fiscal.position.tax.level.code">
+            <field name="name">Autorretenedor</field>
+            <field name="code">O-15</field>
+        </record>
+        <record id="account_fiscal_position_tax_level_code_o_23" model="account.fiscal.position.tax.level.code">
+            <field name="name">Agente de retención IVA</field>
+            <field name="code">O-23</field>
+        </record>
+        <record id="account_fiscal_position_tax_level_code_o_47" model="account.fiscal.position.tax.level.code">
+            <field name="name">Régimen simple de tributación</field>
+            <field name="code">O-47</field>
+        </record>
+        <record id="account_fiscal_position_tax_level_code_o_r99pn" model="account.fiscal.position.tax.level.code">
+            <field name="name">No responsable</field>
+            <field name="code">R-99-PN</field>
+        </record>
+        <!-- <record id="account_fiscal_position_tax_level_code_zz" model="account.fiscal.position.tax.level.code">
+            <field name="name">No aplica</field>
+            <field name="code">ZZ</field>
+        </record> -->
+    </data>
+</odoo>

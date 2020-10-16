@@ -1,0 +1,45 @@
+<odoo>
+    <template id="account_invoice_report_template_with_qr" inherit_id="account.report_invoice_document">
+        <xpath expr="//h2" position="replace">
+                <div style="width:700px; height:110px;float:left;">
+                <div style="width:600px;float:left;">
+                    <h2>
+                        <span t-if="o.type == 'out_invoice' and (o.state == 'open' or o.state == 'paid')">Invoice</span>
+                        <span t-if="o.type == 'out_invoice' and o.state == 'proforma2'">PRO-FORMA</span>
+                        <span t-if="o.type == 'out_invoice' and o.state == 'draft'">Draft Invoice</span>
+                        <span t-if="o.type == 'out_invoice' and o.state == 'cancel'">Cancelled Invoice</span>
+                        <span t-if="o.type == 'out_refund'">Refund</span>
+                        <span t-if="o.type == 'in_refund'">Vendor Refund</span>
+                        <span t-if="o.type == 'in_invoice'">Vendor Bill</span>
+
+                    </h2>
+                </div>
+
+                </div>
+        </xpath>
+        <xpath expr="//p[@name='comment']" position="after">
+             <t t-if="o.company_id.einvoicing_enabled == True">
+                <t t-foreach="o.dian_document_lines" t-as="dd">
+                    <t t-if="dd.state == 'done' or dd.state == 'sent'">
+                        <p><strong>CUFE/CUDE:</strong><span t-field="dd.cufe_cude"/></p>
+                        <img class="image"  t-attf-src="data:image/png;base64,{{dd.qr_image}}" style="width:100px;height:100px;margin-bottom:5px"/>
+                        <span t-field="o.name"/>
+                    </t>
+                </t>
+            </t>
+        </xpath>
+
+    </template>
+    <!--<template id="external_layout_footer" inherit_id="report.external_layout_footer">-->
+    <!--<xpath expr="//ul" position="inside">-->
+        <!--<t t-if="o.company_id.einvoicing_enabled == True">-->
+            <!--<t t-foreach="o.dian_document_lines" t-as="dd">-->
+                <!--<t t-if="dd.state == 'done' or dd.state == 'sent'">-->
+                    <!--<br/>-->
+                    <!--<li><strong>CUFE/CUDE:</strong><span t-field="dd.cufe_cude"/></li>-->
+                <!--</t>-->
+            <!--</t>-->
+        <!--</t>-->
+    <!--</xpath>-->
+    <!--</template>-->
+</odoo>

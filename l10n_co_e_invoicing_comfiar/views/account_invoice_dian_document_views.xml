@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="account_invoice_dian_document_view_tree" model="ir.ui.view">
+            <field name="model">account.invoice.dian.document</field>
+            <field name="arch" type="xml">
+                <tree string="DIAN Documents"
+                    decoration-info="state=='draft'"
+                    decoration-muted="state=='cancel'">
+                    <field name="invoice_id"/>
+                    <field name="type_account" string="Tipo"/>
+                    <field name="cufe_cude"/>
+                    <field name="xml_filename"/>
+                    <field name="output_comfiar_status_code"/>
+                    <field name="state"/>
+                    <field name="company_id"
+                        groups="base.group_multi_company"
+                        options="{'no_create': True}"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- account.invoice.dian.document search view -->
+        <record id="account_invoice_dian_document_view_search" model="ir.ui.view">
+            <field name="name">account.invoice.dian.document.view.search</field>
+            <field name="model">account.invoice.dian.document</field>
+            <field name="arch" type="xml">
+                <search string="Search Description">
+                    <field name="invoice_id"/>
+                    <field name="type_account"/>
+                    <field name="output_comfiar_status_code"/>
+
+                    <group string="Group By" name="groupby">
+                        <filter name="status_groupby" string="Status Comfiar" context="{'group_by': 'output_comfiar_status_code'}"/>
+                        <filter name="createdate_groupby" string="Fecha de Creación" context="{'group_by': 'create_date:month'}"/>
+                        <filter name="type_groupby" string="Tipo de Documento" context="{'group_by': 'type_account'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="account_invoice_dian_document_view_form" model="ir.ui.view">
+            <field name="model">account.invoice.dian.document</field>
+            <field name="arch" type="xml">
+                <form string="DIAN Document">
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,sent,done,cancel"/>
+                        <!-- <button name="action_set_files"
+                            string="Set Files"
+                            type="object"
+                            states="draft,sent"
+                            class="btn-primary"/> -->
+                        <!-- <button name="SalidaTransaccion"
+                            string="Transaction Output"
+                            type="object"
+                            states="draft,sent"
+                            class="btn-primary"/> RespuestaComprobante -->
+                        <button name="validate_status_document_dian"
+                            string="Response Document"
+                            type="object"
+                            states="draft,sent,done"
+                            class="btn-primary"/>
+                        <button name="reprocesar"
+                            string="Reprocess"
+                            type="object"
+                            class="btn-primary"
+                            attrs="{'invisible': ['|', ('state','not in',('draft','sent')), ('output_comfiar_status_code','=','ACEPTADO')]}"/>
+                        <button name="DescargarPdf2"
+                            string="Pdf Download"
+                            type="object"
+                            class="btn-primary"
+                            attrs="{'invisible': [('output_comfiar_status_code','not in',('ACEPTADO','AUTORIZADO'))]}"/>
+                        <button name="DescargarXml2"
+                            string="Xml Download"
+                            type="object"
+                            class="btn-primary"
+                            attrs="{'invisible': [('output_comfiar_status_code','not in',('ACEPTADO','AUTORIZADO'))]}"/>
+                        <button name="action_send_mail"
+                            string="Reenviar Correo"
+                            type="object"
+                            class="btn-primary"
+                        />
+                        <button name="AdjuntarPdfComprobante"
+                            string="Adjuntar PDF"
+                            type="object"
+                            class="btn-primary"
+                        />
+                        <button name="get_status_by_document_number"
+                            string="Consult by number"
+                            type="object"
+                            states="draft,sent"
+                            confirm="Are you sure you want to consult by Voucher number?
+It is possible that the voucher consulted does not correspond to the Odoo invoice. It is recommended to validate in Comfiar that the receipt with this number is the same as odoo."
+                            class="btn-primary"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group string="Invoice">
+                                <field name="invoice_id" readonly="1"/>
+                                <field name="company_id" invisible="1"/>
+                                <field name="invoice_url" widget="url" readonly="1"/>
+                                <field name="profile_execution_id" readonly="1" invisible="1"/>
+                            </group>
+                            <group string="Files">
+                                <field name="xml_file_send_comfiar"
+                                    widget="binary"
+                                    filename="xml_filename"
+                                    readonly="0"
+                                    groups="l10n_co_e_invoicing_comfiar.group_invoice_dian_documen_admin"/>
+                                <field name="xml_filename" invisible="1"/>
+                                <field name="xml_file"
+                                    widget="binary"
+                                    filename="xml_filename"
+                                    readonly="0"/>
+                                <field name="zipped_filename" invisible="1"/>
+                                <field name="zipped_file"
+                                    widget="binary"
+                                    filename="zipped_filename"
+                                    readonly="1"/>
+                                <field name="pdf_filename" invisible="1"/>
+                                <field name="pdf_file"
+                                    widget="binary"
+                                    filename="pdf_filename"
+                                    readonly="1"/>
+                                <field name="attach_pdf"/>
+                                <field name="mail_sent"/>
+                            </group>
+                            <group string="Codes">
+                                <!-- <field name="cufe_cude_uncoded" readonly="1"/> -->
+                                <field name="cude" readonly="1" attrs="{'invisible': [('cude','=',False)]}"/>
+                                <field name="cufe_cude" readonly="1"/>
+                                <!-- <field name="software_security_code_uncoded" readonly="1"/> -->
+                                <field name="software_security_code" readonly="1"/>
+                                <!-- <field name="zip_key" readonly="1"/> -->
+                            </group>
+                            <group string="QR Image">
+                                <field name="qr_image"
+                                    widget="image"
+                                    style="width: 200px; height: 200px;"
+                                    nolabel="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="COMFIAR" name="COMFIAR">
+                                <group string="Estado Transacción" style="border: 1px solid #D1D1D1;">
+                                    <field name="output_comfiar_status_code" readonly="1"/>
+                                    <field name="output_comfiar_response" readonly="1"/>
+                                </group>
+                                <group string="Info Transacción" style="border: 1px solid #D1D1D1;">
+                                    <group>
+                                        <field name="transaction_id" readonly="1"/>
+                                        <field name="transaction_date" readonly="1"/>
+                                        <field name="transaction_pdv" readonly="1"/>
+                                    </group>
+                                    <group>
+                                        <field name="type_account" readonly="1"/>
+                                        <field name="prefix" readonly="1"/>
+                                        <field name="nroCbte" readonly="1"/>
+                                    </group>
+                                    <!-- <button name="set_response_AutCompAsinc" type="object" string="Set Info Transact" class="oe_link" col="2"/> -->
+                                    <button name="update_nroCbte" type="object" string="Update nroCbte" class="oe_link" col="2" groups="l10n_co_e_invoicing_comfiar.group_invoice_dian_documen_admin"/>
+                                    <field name="transaction_response" readonly="1" groups="l10n_co_e_invoicing_comfiar.group_invoice_dian_documen_admin"/>
+                                </group>    
+                                <group string="Estado Ajuntar Pdf" attrs="{'invisible': [('attach_pdf','=',False)]}" style="border: 1px solid #D1D1D1;">
+                                    <field name="attach_pdf_response" readonly="1"/>
+                                </group>
+                                
+                                <field name="transaction_output_invoice" readonly="1" groups="l10n_co_e_invoicing_comfiar.group_invoice_dian_documen_admin" style="border: 1px solid #D1D1D1;"/>
+                            </page>
+                            <page string="DIAN" name="DIAN">
+                                <group>
+                                    <field name="output_dian_status_code" readonly="1"/>
+                                    <field name="output_dian_response" readonly="1"/>
+                                </group>
+                            </page>
+                        </notebook>
+                                                
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="account_invoice_dian_document_action" model="ir.actions.act_window">
+            <field name="name">DIAN Documents</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">account.invoice.dian.document</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="account_invoice_dian_document_menu"
+            name="DIAN Documents"
+            action="account_invoice_dian_document_action"
+            parent="account.menu_finance_receivables"
+            sequence="2"/>
+        
+        <record model="ir.actions.server" id="response_document_comfiar">
+            <field name="name">Response Documents</field>
+            <field name="model_id" ref="model_account_invoice_dian_document"/>
+            <field name="state">code</field>
+            <field name="code">
+                records.RespuestaComprobantes()
+            </field>
+        </record>
+
+        <record model="ir.actions.server" id="attach_pdf_comfiar">
+            <field name="name">Attach PDFs</field>
+            <field name="model_id" ref="model_account_invoice_dian_document"/>
+            <field name="state">code</field>
+            <field name="code">
+                records.AdjuntarPdfComprobantes()
+                #records.RespuestaComprobantes()
+            </field>
+        </record>
+    </data>
+</odoo>

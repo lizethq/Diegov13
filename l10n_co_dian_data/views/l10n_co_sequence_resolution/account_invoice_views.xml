@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="invoice_form_seq_resolution" model="ir.ui.view">
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='invoice_has_outstanding']" position="after">
+                    <field name="warn_remaining" invisible="1"/>
+                    <field name="warn_inactive_resolution" invisible="1"/>
+                    <div class="alert alert-error"
+                        role="alert"
+                        style="margin-bottom:0px; background-color:#ff9e9e;"
+                        attrs="{'invisible': [('warn_remaining', '!=', True)]}">
+                        The authorized invoicing resolution for this journal is nearby to expire or the authorized numbering is running out.<br/>
+                        <span style="font-weight:bold;">Please, you must to inform the administration.</span>
+                    </div>
+                    <div class="alert alert-error"
+                        role="alert"
+                        style="margin-bottom:0px; background-color:#ff9e9e;"
+                        attrs="{'invisible': [('warn_inactive_resolution', '!=', True)]}">
+                        There is no active authorized invoicing resolution.<br/>
+                        <span style="font-weight:bold;">Please, you must to inform the administration.</span>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

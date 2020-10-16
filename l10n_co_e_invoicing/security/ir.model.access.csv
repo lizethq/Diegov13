@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_account_invoice_dian_document_user,account_invoice_dian_document_user,model_account_invoice_dian_document,,1,1,1,0
+access_product_scheme_user,product_scheme_user,model_product_scheme,,1,0,0,0

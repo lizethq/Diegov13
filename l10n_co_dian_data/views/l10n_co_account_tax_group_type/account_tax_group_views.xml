@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="account_tax_group_view_tree" model="ir.ui.view">
+            <field name="model">account.tax.group</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom" string="Tax Groups">
+                    <field name="name"/>
+                    <field name="sequence"/>
+                    <field name="tax_group_type_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="account_tax_group_action" model="ir.actions.act_window">
+            <field name="name">Tax Groups</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">account.tax.group</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="account_tax_group_view_tree"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record> 
+
+        <menuitem action="account_tax_group_action"
+            name="Tax Groups"
+            id="menu_account_tax_group_action"
+            parent="account.account_account_menu"
+            sequence="2"/>
+    </data>
+</odoo>

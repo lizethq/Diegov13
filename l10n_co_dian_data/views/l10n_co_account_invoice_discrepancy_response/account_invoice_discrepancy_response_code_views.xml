@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="account_invoice_discrepancy_response_code_view_tree" model="ir.ui.view">
+            <field name="model">account.invoice.discrepancy.response.code</field>
+            <field name="arch" type="xml">
+                <tree string="Correction concepts for Refund Invoices">
+                    <field name='name'/>
+                    <field name='code'/>
+                    <field name='type'/>
+                </tree>
+            </field>
+        </record>
+
+        <!--<record id="account_invoice_discrepancy_response_code_view_search" model="ir.ui.view">-->
+            <!--<field name="model">account.invoice.discrepancy.response.code</field>-->
+            <!--<field name="arch" type="xml">-->
+                <!--<search string="Search" name='search'>-->
+                    <!--<field name="name" filter_domain="[('name','ilike',self)]"/>-->
+                    <!--<field name="code" filter_domain="[('code','ilike',self)]"/>-->
+                    <!--<group expand="0" string="Group By" name='group_by'>-->
+                        <!--<filter string="Type" context="{'group_by':'type'}"/>-->
+                    <!--</group>-->
+               <!--</search>-->
+            <!--</field>-->
+        <!--</record>-->
+
+
+
+        <record id="account_invoice_discrepancy_response_code_view_form" model="ir.ui.view">
+            <field name="model">account.invoice.discrepancy.response.code</field>
+            <field name="arch" type="xml">
+                <form string="Correction concepts for Refund Invoices">
+                    <group>
+                        <group>
+                            <field name='name' required='1'/>
+                            <field name='code' required='1'/>
+                            <field name='type' required='1'/>
+                        </group>
+                        <group></group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+         <record id="account_invoice_discrepancy_response_code_action" model="ir.actions.act_window">
+            <field name="name">Correction concepts for Refund Invoices</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">account.invoice.discrepancy.response.code</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="account_invoice_discrepancy_response_code_view_tree"/>
+        </record>
+
+        <menuitem id="account_invoice_discrepancy_response_code_menu"
+            name="Correction concepts for Refund Invoices"
+            parent="account.account_account_menu"
+            action="account_invoice_discrepancy_response_code_action"
+            sequence="0"/>
+
+    </data>
+</odoo>

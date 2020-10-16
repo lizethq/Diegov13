@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_company_form" model="ir.ui.view">
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page name="einvoicing" string="E-Invoicing">
+                        <group>
+                            <group>
+                                <field name="einvoicing_enabled"/>
+                                <field name="out_invoice_sent"/>
+                                <field name="out_refund_sent"/>
+                                <field name="in_refund_sent"/>
+                                <field name="profile_execution_id" attrs="{'required': [('einvoicing_enabled', '=', True)]}"/>
+                                <!-- <field name="test_set_id" attrs="{'required': [('einvoicing_enabled', '=', True)]}"/>
+                                <field name="software_id" attrs="{'required': [('einvoicing_enabled', '=', True)]}"/>
+                                <field name="software_pin" attrs="{'required': [('einvoicing_enabled', '=', True)]}"/>
+                                <field name="certificate_filename" invisible="1"/>
+                                <field name="certificate_file" widget="binary"  filename="certificate_filename" attrs="{'required': [('einvoicing_enabled', '=', True)]}"/>
+                                <field name="certificate_password" attrs="{'required': [('einvoicing_enabled', '=', True)]}"/>
+                                <field name="files_path"/>-->
+                                <field name="einvoicing_email"/>
+                                <field name="einvoicing_partner_no_email"/>
+                                <!--<field name="signature_policy_url" attrs="{'required': [('einvoicing_enabled', '=', True)]}"/>
+                                <field name="signature_policy_description" attrs="{'required': [('einvoicing_enabled', '=', True)]}"/>
+                                <field name="signature_policy_filename" invisible="1"/>
+                                <field name="signature_policy_file" widget="binary" filename="signature_policy_filename"/>
+                                <field name="report_template" domain="[('model', '=', 'account.move')]" attrs="{'required': [('einvoicing_enabled', '=', True)]}"/>
+                                <field name="notification_group_ids">
+                                    <tree editable="bottom">
+                                        <field name="name"/>
+                                        <field name="email"/>
+                                    </tree>
+                                </field>
+                                <label for="get_numbering_range_response"/>
+                                <div>
+                                    <button name="action_GetNumberingRange" string="GetNumberingRange" type="object" class="oe_stat_button" icon="fa-check"/>
+                                    <field name="get_numbering_range_response"/>
+                                </div> -->
+                            </group>
+                            <group>
+                                <field name="tributary_information"/>
+                            </group>
+                        </group>
+                    </page>
+                    <page string="COMFIAR" name="Comfiar">
+                        <group>
+                            <group string="Credenciales COMFIAR">
+                                <field name="user_comfiar" attrs="{'required': [('einvoicing_enabled', '=', True)]}"/>
+                                <field name="pwd_comfiar" attrs="{'required': [('einvoicing_enabled', '=', True)]}" password="True"/>
+                                <field name="formatoId" attrs="{'required': [('einvoicing_enabled', '=', True)]}"/>
+                                <field name="comfiar_send_mail"/>
+                                <field name="odoo_send_mail_einv"/>
+                                <field name="attach_pdf"/>
+                                <field name="report_template" domain="[('model', '=', 'account.move')]"/>
+                                <!-- <field name="pdvid_inv" attrs="{'required': [('einvoicing_enabled', '=', True)]}"/>
+                                <field name="pdvid_nc" attrs="{'required': [('einvoicing_enabled', '=', True)]}"/>
+                                <field name="pdvid_nd" attrs="{'required': [('einvoicing_enabled', '=', True)]}"/> -->
+                            </group>
+                            <group string="Sesion">
+                                <button name="get_sesion_comfiar" type="object" string="Get Session"/>
+                                <field name="sesion_id" readonly="1" password="True"/>
+                                <field name="date_due_sesion" readonly="1" password="True"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

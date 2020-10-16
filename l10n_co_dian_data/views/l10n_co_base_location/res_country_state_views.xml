@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>        
+        <record id="res_country_state_search" model="ir.ui.view">
+			<field name="model">res.country.state</field>
+			<field name="arch" type="xml">
+				<search string="States">
+					<field name="name" filter_domain="['|', ('code', 'ilike', self), ('name', 'ilike', self)]"/>
+				</search>
+			</field>
+		</record>
+		
+		<record id="view_country_state_form2" model="ir.ui.view">
+			<field name="model">res.country.state</field>
+			<field name="inherit_id" ref="base_location.view_country_state_form2"/>
+			<field name="arch" type="xml">
+				<xpath expr='///tree/field[@name="code"]' position="after">
+					<field name="phone_prefix"/>
+				</xpath>
+			</field>
+		</record>
+    </data>
+</odoo>

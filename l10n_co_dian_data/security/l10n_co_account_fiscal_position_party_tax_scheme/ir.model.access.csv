@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_account_fiscal_position_tax_level_code_manager,account.fiscal.position.tax.level.code.manager,model_account_fiscal_position_tax_level_code,account.group_account_manager,1,1,1,1
+access_account_fiscal_position_tax_level_code_users,account.fiscal.position.tax.level.code.users,model_account_fiscal_position_tax_level_code,,1,0,0,0
+access_account_fiscal_position_tax_scheme_manager,account.fiscal.positiontax.scheme.manager,model_account_fiscal_position_tax_scheme,account.group_account_manager,1,1,1,1
+access_account_fiscal_position_tax_scheme_users,account.fiscal.position.tax.scheme.users,model_account_fiscal_position_tax_scheme,,1,0,0,0

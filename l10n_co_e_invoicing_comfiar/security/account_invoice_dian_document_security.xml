@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="group_category_invoice_dian_document" model="ir.module.category">
+            <field name="name">Electronic Invoice.</field>
+            <field name="description">Electronic Invoice.</field>
+            <field name="sequence">19</field>
+        </record>
+
+        <record id="group_invoice_dian_documen_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="category_id" ref="group_category_invoice_dian_document"/>
+        </record>
+
+        <record id="group_invoice_dian_documen_admin" model="res.groups">
+            <field name="name">Administrator</field>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="category_id" ref="group_category_invoice_dian_document"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+            <!-- <field name="category_id" ref="group_category_invoice_dian_document"/> -->
+        </record>
+    </data>
+</odoo>

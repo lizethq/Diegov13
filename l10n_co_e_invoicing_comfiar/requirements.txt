@@ -1,0 +1,4 @@
+validators==0.15.0
+pyOpenSSL==19.1.0
+xades ==0.2.1
+qrcode

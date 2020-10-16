@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="account_fiscal_position_tax_level_code_view_tree" model="ir.ui.view">
+            <field name="model">account.fiscal.position.tax.level.code</field>
+            <field name="arch" type="xml">
+                <tree string="Fiscal Responsibilities (TaxLevelCode)">
+                    <field name='name'/>
+                    <field name='code'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="account_fiscal_position_tax_level_code_view_search" model="ir.ui.view">
+            <field name="model">account.fiscal.position.tax.level.code</field>
+            <field name="arch" type="xml">
+                <search string="Search">
+                    <field name="name" filter_domain="[('name','ilike',self)]"/>
+                    <field name="code" filter_domain="[('code','ilike',self)]"/>
+               </search>
+            </field>
+        </record>
+
+        <record id="account_fiscal_position_tax_level_code_view_form" model="ir.ui.view">
+            <field name="model">account.fiscal.position.tax.level.code</field>
+            <field name="arch" type="xml">
+                <form string="Fiscal Responsibilities (TaxLevelCode)">
+                    <group>
+                        <field name='name' required='1'/>
+                        <field name='code' required='1'/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="account_fiscal_position_tax_level_code_action" model="ir.actions.act_window">
+            <field name="name">Fiscal Responsibilities (TaxLevelCode)</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">account.fiscal.position.tax.level.code</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="account_fiscal_position_tax_level_code_view_tree"/>
+            <field name="search_view_id" ref="account_fiscal_position_tax_level_code_view_search"/>
+        </record>
+
+        <menuitem id="account_fiscal_position_tax_level_code_action_menu" 
+            name="Fiscal Responsibilities (TaxLevelCode)"
+            parent="account.account_account_menu" 
+            action="account_fiscal_position_tax_level_code_action"
+            sequence="5"/>
+    </data>
+</odoo>
