@@ -62,7 +62,7 @@ class AccountInvoice(models.Model):
 
 		_logger.info(self.type)
 		if self.company_id.einvoicing_enabled:
-			if self.type in ("out_invoice", "out_refund"):
+			if self.type in ("out_invoice", "out_invoice_note", "out_refund"):
 				company_currency = self.company_id.currency_id
 				rate = 1
 				# date = self._get_currency_rate_date() or fields.Date.context_today(self)
@@ -77,7 +77,7 @@ class AccountInvoice(models.Model):
 					_logger.info(rate)
 					self.trm = rate
 
-				if self.type == 'out_refund' and self.refund_type == 'debit':
+				if self.type == 'out_invoice_note' and self.refund_type == 'debit':
 					type_account = 'debit'
 				elif self.type == 'out_refund' and self.refund_type != 'debit':
 					type_account = 'credit'

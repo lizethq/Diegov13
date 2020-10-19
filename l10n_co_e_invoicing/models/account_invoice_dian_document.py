@@ -268,7 +268,7 @@ class AccountInvoiceDianDocument(models.Model):
                         elif (self.invoice_id.type == "out_refund"
                               and self.invoice_id.refund_type != "debit"):
                             self.company_id.out_refund_sent += 1
-                        elif (self.invoice_id.type == "out_refund"
+                        elif (self.invoice_id.type == "out_invoice_note"
                               and self.invoice_id.refund_type == "debit"):
                             self.company_id.out_refund_sent += 1
 
@@ -382,7 +382,7 @@ class AccountInvoiceDianDocument(models.Model):
         elif self.invoice_id.type == 'out_refund' and self.invoice_id.refund_type != 'debit':
             xml_filename_prefix = 'nc'
             dddddddd = str(out_refund_sent + 1).zfill(8)
-        elif self.invoice_id.type == 'out_refund' and self.invoice_id.refund_type == 'debit':
+        elif self.invoice_id.type == 'out_invoice_note' and self.invoice_id.refund_type == 'debit':
             xml_filename_prefix = 'nd'
             dddddddd = str(out_refund_sent + 1).zfill(8)
 
@@ -807,7 +807,7 @@ class AccountInvoiceDianDocument(models.Model):
             xml_without_signature = global_functions.get_template_xml(
                 self._get_credit_note_values(),
                 'CreditNote')
-        elif self.invoice_id.type == "out_refund" and self.invoice_id.refund_type == "debit":
+        elif self.invoice_id.type == "out_invoice_note" and self.invoice_id.refund_type == "debit":
             xml_without_signature = global_functions.get_template_xml(
                 self._get_debit_note_values(),
                 'DebitNote')
@@ -1076,7 +1076,7 @@ class AccountInvoiceDianDocument(models.Model):
 
                         if self.invoice_id.type == 'out_invoice':
                             self.company_id.out_invoice_sent += 1
-                        elif self.invoice_id.type == 'out_refund':
+                        elif self.invoice_id.type == 'out_invoice_note':
                             self.company_id.out_refund_sent += 1
                         elif self.invoice_id.type == 'in_refund':
                             self.company_id.in_refund_sent += 1

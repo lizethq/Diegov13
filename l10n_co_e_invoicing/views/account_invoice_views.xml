@@ -47,6 +47,31 @@
         </field>
     </record>
 
+    <record id="action_move_debit_type" model="ir.actions.act_window">
+            <field name="name">Notas Debito</field>
+            <field name="res_model">account.move</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="view_id" ref="account.view_invoice_tree"/>
+            <field name="search_view_id" ref="account.view_account_invoice_filter"/>
+            <field name="domain">[('type', '=', 'out_invoice_note')]</field>
+            <field name="context">{'default_type': 'out_invoice_note'}</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Create a debit note
+              </p><p>
+                Note that the easiest way to create a debit note is to do it directly
+                from the customer invoice.
+              </p>
+            </field>
+     </record>
+
+    <menuitem
+            id="menu_action_move_debit_type"
+            name="Notas Debito"
+            action="action_move_debit_type"
+            parent="account.menu_finance_receivables"
+            sequence="1"/>
+
     <record id="email_template_for_einvoice" model="mail.template">
         <field name="name">Electronic Invoice - Send by Email</field>
         <field name="model_id" ref="account.model_account_move"/>
