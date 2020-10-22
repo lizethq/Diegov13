@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data noupdate="0">
+        
+        <!-- res.partner inherit form view -->
+        <record id="view_partner_property_form_chech_mail_einv" model="ir.ui.view">
+            <field name="name">res.partner.inherit.view.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="account.view_partner_property_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='banks']" position="before">
+                    <group string="e-Invoicing" name="einv">
+                        <field name="check_mail_einv"/>
+                    </group>
+                    <group></group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

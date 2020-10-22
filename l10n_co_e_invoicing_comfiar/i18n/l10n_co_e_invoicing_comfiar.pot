@@ -1,0 +1,1572 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_co_e_invoicing_comfiar
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-22 17:37+0000\n"
+"PO-Revision-Date: 2020-09-22 17:37+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:mail.template,body_html:l10n_co_e_invoicing_comfiar.email_template_for_einvoice
+msgid ""
+"\n"
+"        <div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"            <p>Señor(es),</p>\n"
+"            <p>${object.partner_id.name}</p><br><br>\n"
+"        <p>Le informamos que ha recibido una factura/nota electrónica de ${object.company_id.name}:</p><br><br>\n"
+"        <p>Número de factura: <strong> ${object.name} </strong></p>\n"
+"        <p>A nombre de: <strong> ${object.partner_id.name} </strong></p>\n"
+"        <p>Valor Total: <strong> ${object.amount_total} ${object.currency_id.name} </strong></p><br><br>\n"
+"        <p>Si tiene inquietud respecto a la información contenida en la factura/nota electrónica, responda este correo electrónico.</p><br>\n"
+"\n"
+"        <p>Si pasados tres (3) días hábiles siguientes a la recepción de la factura/nota electrónica, no se ha recibido un correo indicando rechazo de la factura/nota electrónica, el sistema la dará por aceptada.</p><br>\n"
+"        <p>Escriba a ${object.company_id.partner_id.einvoicing_email} si desea modificar sus datos para el envío de la factura/nota electrónica.</p><br>\n"
+"\n"
+"        <p>Cordialmente,</p><br>\n"
+"        <p><strong>${object.company_id.name}</strong></p>\n"
+"        </div>\n"
+"        "
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:mail.template,subject:l10n_co_e_invoicing_comfiar.email_template_for_einvoice
+msgid "${object.company_id.name} generó la Factura electrónica ${object.name}"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/res_partner.py:0
+#, python-format
+msgid "'%s' does not have a DIAN document type established."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/res_partner.py:0
+#: code:addons/l10n_co_e_invoicing_comfiar/models/res_partner.py:0
+#, python-format
+msgid "'%s' does not have a city established."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/res_partner.py:0
+#: code:addons/l10n_co_e_invoicing_comfiar/models/res_partner.py:0
+#, python-format
+msgid "'%s' does not have a country established."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/res_partner.py:0
+#, python-format
+msgid "'%s' does not have a fiscal position correctly configured."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/res_partner.py:0
+#, python-format
+msgid "'%s' does not have a fiscal position established."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/res_partner.py:0
+#, python-format
+msgid "'%s' does not have a identification document established."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/res_partner.py:0
+#, python-format
+msgid "'%s' does not have a person type established."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/res_partner.py:0
+#: code:addons/l10n_co_e_invoicing_comfiar/models/res_partner.py:0
+#, python-format
+msgid "'%s' does not have a state established."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/res_partner.py:0
+#, python-format
+msgid "'%s' does not have a verification digit established."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.actions.report,print_report_name:l10n_co_e_invoicing_comfiar.account_e_invoices
+msgid "(object._get_report_base_filename())"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_document
+msgid "<br/>Firma Autorizada"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_document
+msgid ""
+"<span groups=\"account.group_show_line_subtotals_tax_excluded\">Amount</span>\n"
+"                                <span groups=\"account.group_show_line_subtotals_tax_included\">Total Price</span>"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_document
+msgid "<span>Description</span>"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_document
+msgid "<span>Disc.%</span>"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_document
+msgid "<span>Item</span>"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_document
+msgid "<span>Quantity</span>"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_document
+msgid "<span>Source Document</span>"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_document
+msgid "<span>Taxes</span>"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_document
+msgid "<span>Unit Price</span>"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_document
+msgid "<strong class=\"mr16\">Subtotal</strong>"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_document
+msgid "<strong>CUDE: </strong>"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_report_template_with_qr
+msgid "<strong>CUFE/CUDE:</strong>"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_document
+msgid "<strong>CUFE: </strong>"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_document
+msgid "<strong>Ciudad:</strong>"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_document
+msgid "<strong>Cliente:</strong>"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_document
+msgid "<strong>Dirección:</strong>"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_document
+msgid "<strong>Doc. Origen:</strong>"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_layout
+msgid "<strong>FACTURA DE VENTA N°</strong>"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_document
+msgid "<strong>Forma de pago:</strong>"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_document
+msgid "<strong>Medio de pago:</strong>"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_layout
+msgid "<strong>NOTA CREDITO</strong>"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_layout
+msgid "<strong>NOTA DEBITO</strong>"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_document
+msgid "<strong>Nit:</strong>"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_document
+msgid "<strong>Subtotal</strong>"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_document
+msgid "<strong>Teléfono:</strong>"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_document
+msgid "<strong>Total en letras: </strong>"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_document
+msgid "<strong>Total</strong>"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice_dian_document.py:0
+#, python-format
+msgid "ALERTA! La Factura %s no fue enviada a la DIAN."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_document
+msgid "Aceptado y Recibido<br/>Nombre y Sello, Cliente"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_dian_document_view_form
+msgid "Adjuntar PDF"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_res_company__attach_pdf
+msgid "Adjuntar Pdf"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__attach_pdf
+msgid "Adjuntar pdf en Comfiar"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:res.groups,name:l10n_co_e_invoicing_comfiar.group_invoice_dian_documen_admin
+msgid "Administrator"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields.selection,name:l10n_co_e_invoicing_comfiar.selection__account_move__send_invoice_to_dian__1
+msgid "After 1 Day"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields.selection,name:l10n_co_e_invoicing_comfiar.selection__account_move__send_invoice_to_dian__2
+msgid "After 2 Days"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_dian_document_view_form
+msgid ""
+"Are you sure you want to consult by Voucher number? It is possible that the "
+"voucher consulted does not correspond to the Odoo invoice. It is recommended"
+" to validate in Comfiar that the receipt with this number is the same as "
+"odoo."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.actions.server,name:l10n_co_e_invoicing_comfiar.attach_pdf_comfiar
+msgid "Attach PDFs"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,help:l10n_co_e_invoicing_comfiar.field_res_company__comfiar_send_mail
+msgid ""
+"By checking this box, the customer information is sent when the invoice is "
+"published so that COMFIAR can send it by email."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_dian_document_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.view_company_form
+msgid "COMFIAR"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__cude
+msgid "CUDE"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__cufe_cude
+msgid "CUFE"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields.selection,name:l10n_co_e_invoicing_comfiar.selection__account_invoice_dian_document__state__cancel
+msgid "Cancel"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_report_template_with_qr
+msgid "Cancelled Invoice"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_res_company__certificate_file
+msgid "Certificate File"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_res_company__certificate_filename
+msgid "Certificate Filename"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_res_company__certificate_password
+msgid "Certificate Password"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,help:l10n_co_e_invoicing_comfiar.field_res_company__odoo_send_mail_einv
+msgid ""
+"Checking this box will send the e-invoicing email from Odoo automatically "
+"when validating the status of the DIAN document"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice_dian_document.py:0
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice_dian_document.py:0
+#, python-format
+msgid ""
+"Code Error: %s\n"
+"\n"
+" Reason: %s"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_dian_document_view_form
+msgid "Codes"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_res_company__comfiar_send_mail
+msgid "Comfiar sends the email?"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model,name:l10n_co_e_invoicing_comfiar.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__company_id
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_einvoice_notification_group__company_id
+msgid "Company"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_dian_document_view_form
+msgid "Consult by number"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model,name:l10n_co_e_invoicing_comfiar.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice_dian_document.py:0
+#, python-format
+msgid ""
+"Cordial Saludo,<br/><br/>La factura  del cliente  no pudo ser enviada a la "
+"Dian según el protocolo establecido previamente. Por favor revise el estado "
+"de la misma en el menú Documentos Dian e intente reprocesarla según el "
+"procedimiento definido.<br/>."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_move__is_invoice_out_odoo
+msgid "Creada fuera de odoo?"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__create_uid
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document_line__create_uid
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_einvoice_notification_group__create_uid
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_product_scheme__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__create_date
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document_line__create_date
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_einvoice_notification_group__create_date
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_product_scheme__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.view_company_form
+msgid "Credenciales COMFIAR"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields.selection,name:l10n_co_e_invoicing_comfiar.selection__account_invoice_dian_document__type_account__04
+msgid "Credit Note"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields.selection,name:l10n_co_e_invoicing_comfiar.selection__account_move__operation_type__20
+msgid "Credit note that references an e-invoice"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields.selection,name:l10n_co_e_invoicing_comfiar.selection__account_move__operation_type__22
+msgid "Credit note without reference to invoices *"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_move__uuid_invoice
+msgid "Cufe"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_move__customizationid_invoice
+msgid "Customizationid Invoice"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_dian_document_view_form
+msgid "DIAN"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document_line__dian_document_id
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_dian_document_view_form
+msgid "DIAN Document"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__dian_document_line_ids
+msgid "DIAN Document Lines"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.actions.act_window,name:l10n_co_e_invoicing_comfiar.account_invoice_dian_document_action
+#: model:ir.ui.menu,name:l10n_co_e_invoicing_comfiar.account_invoice_dian_document_menu
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_dian_document_view_tree
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.view_invoice_form
+msgid "DIAN Documents"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_ir_sequence__dian_type
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_ir_sequence_date_range__dian_type
+msgid "DIAN Type"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields.selection,name:l10n_co_e_invoicing_comfiar.selection__account_invoice_dian_document__type_account__05
+msgid "Debit Note"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields.selection,name:l10n_co_e_invoicing_comfiar.selection__account_move__operation_type__30
+msgid "Debit note that references an e-invoice"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields.selection,name:l10n_co_e_invoicing_comfiar.selection__account_move__operation_type__32
+msgid "Debit note without reference to invoices *"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__profile_execution_id
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_res_company__profile_execution_id
+msgid "Destination Environment of Document"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_move__dian_document_lines
+msgid "Dian Document Lines"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_layout
+msgid "Dir:"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__display_name
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document_line__display_name
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_einvoice_notification_group__display_name
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_product_scheme__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_tax_group__is_einvoicing
+msgid "Does it Apply for E-Invoicing?"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields.selection,name:l10n_co_e_invoicing_comfiar.selection__account_invoice_dian_document__state__done
+msgid "Done"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields.selection,name:l10n_co_e_invoicing_comfiar.selection__account_invoice_dian_document__state__draft
+msgid "Draft"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_report_template_with_qr
+msgid "Draft Invoice"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/ir_sequence.py:0
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.view_company_form
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.view_invoice_form
+#, python-format
+msgid "E-Invoicing"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/res_partner.py:0
+#, python-format
+msgid "E-Invoicing Agent: '%s' does not have a E-Invoicing Email."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_res_company__einvoicing_enabled
+msgid "E-Invoicing Enabled"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_res_company__einvoicing_email
+msgid "E-invoice Email From"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_journal_resolution_view_form
+msgid "E-invoicing"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.actions.report,name:l10n_co_e_invoicing_comfiar.account_e_invoices
+msgid "Electronic Invoice"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice_dian_document.py:0
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice_dian_document.py:0
+#, python-format
+msgid "Electronic Invoice - %s.pdf"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.module.category,description:l10n_co_e_invoicing_comfiar.group_category_invoice_dian_document
+#: model:ir.module.category,name:l10n_co_e_invoicing_comfiar.group_category_invoice_dian_document
+msgid "Electronic Invoice."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_einvoice_notification_group__email
+msgid "Email"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_layout
+msgid "Email:"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,help:l10n_co_e_invoicing_comfiar.field_res_company__einvoicing_email
+msgid "Enter the e-invoice sender's email."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,help:l10n_co_e_invoicing_comfiar.field_res_company__einvoicing_partner_no_email
+msgid ""
+"Enter the email where the invoice will be sent when the customer does not "
+"have an email."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_dian_document_view_form
+msgid "Estado Ajuntar Pdf"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_dian_document_view_form
+msgid "Estado Transacción"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_res_company__date_due_sesion
+msgid "Expiration"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_document
+msgid "FECHA FACTURA"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_document
+msgid "FECHA VENCIMIENTO"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_move__id_invoice_refound
+msgid "Factura"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields.selection,name:l10n_co_e_invoicing_comfiar.selection__account_move__invoice_type_code__01
+msgid "Factura de Venta"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields.selection,name:l10n_co_e_invoicing_comfiar.selection__account_move__invoice_type_code__02
+msgid "Factura de Venta Exportación"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields.selection,name:l10n_co_e_invoicing_comfiar.selection__account_move__invoice_type_code__04
+msgid "Factura por Contingencia DIAN"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields.selection,name:l10n_co_e_invoicing_comfiar.selection__account_move__invoice_type_code__03
+msgid "Factura por Contingencia Facturador"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_res_company__einvoicing_partner_no_email
+msgid "Failed Emails To"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_move__issue_date_invoice
+msgid "Fecha"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_dian_document_view_search
+msgid "Fecha de Creación"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_dian_document_view_form
+msgid "Files"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_res_company__files_path
+msgid "Files Path"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_res_company__formatoId
+msgid "Formato Id"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.view_company_form
+msgid "Get Session"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_res_company__get_numbering_range_response
+msgid "GetNumberingRange Response"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_dian_document_view_search
+msgid "Group By"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_document
+msgid "HORA FACTURA"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_move__issue_time
+msgid "Hora Emisión"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__id
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document_line__id
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_einvoice_notification_group__id
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_product_scheme__id
+msgid "ID"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_res_company__sesion_id
+msgid "Id Session"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,help:l10n_co_e_invoicing_comfiar.field_res_company__formatoId
+msgid ""
+"Identificador en COMFIAR del formato mediante el cual se procesará el "
+"comprobante. Nota: consultar identificador al implementador."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,help:l10n_co_e_invoicing_comfiar.field_ir_sequence_date_range__puntoDeVentaId
+msgid ""
+"Identificador en COMFIAR del punto de venta/serie/prefijo asociado al "
+"comprobante a procesar; tipo de dato numérico. Nota: consultar identificador"
+" al implementador."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields.selection,name:l10n_co_e_invoicing_comfiar.selection__account_move__send_invoice_to_dian__0
+msgid "Immediately"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_dian_document_view_form
+msgid "Info Transacción"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_res_company__tributary_information
+msgid "Información Tributaria"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/res_company.py:0
+#, python-format
+msgid "Invalid URL."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__invoice_id
+#: model:ir.model.fields.selection,name:l10n_co_e_invoicing_comfiar.selection__account_invoice_dian_document__type_account__01
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_dian_document_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_report_template_with_qr
+msgid "Invoice"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_move__invoice_type_code
+msgid "Invoice Type"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__invoice_url
+msgid "Invoice Url"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model,name:l10n_co_e_invoicing_comfiar.model_account_journal
+msgid "Journal"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model,name:l10n_co_e_invoicing_comfiar.model_account_move
+msgid "Journal Entries"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model,name:l10n_co_e_invoicing_comfiar.model_account_move_line
+msgid "Journal Item"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document____last_update
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document_line____last_update
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_einvoice_notification_group____last_update
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_product_scheme____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__write_uid
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document_line__write_uid
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_einvoice_notification_group__write_uid
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_product_scheme__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__write_date
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document_line__write_date
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_einvoice_notification_group__write_date
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_product_scheme__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_layout
+msgid "Logo"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__mail_sent
+msgid "Mail Sent?"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_product_product__margin_percentage
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_product_template__margin_percentage
+msgid "Margin Percentage"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_validate_account_move.py:0
+#, python-format
+msgid "Missing 'active_model' in context."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_layout
+msgid "NIT:"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields.selection,name:l10n_co_e_invoicing_comfiar.selection__account_invoice_dian_document__output_dian_status_code__66
+msgid "NSU no encontrado"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_einvoice_notification_group__name
+msgid "Name"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_res_partner__check_mail_einv
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_res_users__check_mail_einv
+msgid "Need attachments in e-invoicing mail"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_res_company__notification_group_ids
+msgid "Notification Group"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__nroCbte
+msgid "Number Document"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_res_company__odoo_send_mail_einv
+msgid "Odoo sends the email?"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_move__operation_type
+msgid "Operation Type"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_move__invoice_origin
+msgid "Origin"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields.selection,name:l10n_co_e_invoicing_comfiar.selection__account_invoice_dian_document__output_dian_status_code__other
+msgid "Other"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_report_template_with_qr
+msgid "PRO-FORMA"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_layout
+msgid "Page: <span class=\"page\"/> / <span class=\"topage\"/>"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_res_company__pwd_comfiar
+msgid "Password"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_dian_document_view_form
+msgid "Pdf Download"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__pdf_file
+msgid "Pdf File"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__pdf_filename
+msgid "Pdf Filename"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_layout
+msgid "Phone:"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_document
+msgid "Please use the following communication for your payment :"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__prefix
+msgid "Prefix"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields.selection,name:l10n_co_e_invoicing_comfiar.selection__account_invoice_dian_document__output_dian_status_code__00
+msgid "Procesado Correctamente"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_product_product__product_scheme_id
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_product_template__product_scheme_id
+msgid "Product Scheme"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model,name:l10n_co_e_invoicing_comfiar.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields.selection,name:l10n_co_e_invoicing_comfiar.selection__res_company__profile_execution_id__1
+msgid "Production"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_ir_sequence_date_range__puntoDeVentaId
+msgid "Punto de Venta"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__transaction_pdv
+msgid "PuntoDeVentaId"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__qr_image
+msgid "QR Code"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_dian_document_view_form
+msgid "QR Image"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document_line__send_async_reason
+msgid "Reason"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_dian_document_view_form
+msgid "Reenviar Correo"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_move_line__ref_comfiar
+msgid "Ref Comfiar"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_product_product__reference_price
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_product_template__reference_price
+msgid "Reference Price"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_move__ref1_comfiar
+msgid "Referencia 1 Comfiar"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_report_template_with_qr
+msgid "Refund"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_res_company__report_template
+msgid "Report Template"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_dian_document_view_form
+msgid "Reprocess"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_bank_statement_import_journal_creation__resolution_text
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_journal__resolution_text
+msgid "Resolución"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__output_comfiar_response
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__output_dian_response
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document_line__send_async_response
+msgid "Response"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_dian_document_view_form
+msgid "Response Document"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.actions.server,name:l10n_co_e_invoicing_comfiar.response_document_comfiar
+msgid "Response Documents"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__attach_pdf_response
+msgid "Respuesta Adjuntar Pdf"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_dian_document_view_search
+msgid "Search Description"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice.py:0
+#, python-format
+msgid "Send Invoice"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_move__send_invoice_to_dian
+msgid "Send Invoice to DIAN?"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields.selection,name:l10n_co_e_invoicing_comfiar.selection__account_invoice_dian_document__state__sent
+msgid "Sent"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model,name:l10n_co_e_invoicing_comfiar.model_ir_sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model,name:l10n_co_e_invoicing_comfiar.model_ir_sequence_date_range
+msgid "Sequence Date Range"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.view_company_form
+msgid "Sesion"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_res_company__signature_policy_description
+msgid "Signature Policy Description"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_res_company__signature_policy_file
+msgid "Signature Policy File"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_res_company__signature_policy_filename
+msgid "Signature Policy Filename"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_res_company__signature_policy_url
+msgid "Signature Policy Url"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_res_company__software_id
+msgid "Software Id"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_res_company__software_pin
+msgid "Software PIN"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__software_security_code
+msgid "SoftwareSecurityCode"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields.selection,name:l10n_co_e_invoicing_comfiar.selection__account_move__operation_type__10
+msgid "Standard *"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__state
+msgid "State"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__output_comfiar_status_code
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__output_dian_status_code
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document_line__send_async_status_code
+msgid "Status Code"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_dian_document_view_search
+msgid "Status Comfiar"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model,name:l10n_co_e_invoicing_comfiar.model_account_tax_group
+msgid "Tax Group"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields.selection,name:l10n_co_e_invoicing_comfiar.selection__res_company__profile_execution_id__2
+msgid "Test"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_res_company__test_set_id
+msgid "Test Set Id"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice_dian_document.py:0
+#, python-format
+msgid ""
+"The \"formatoID\" is required to authorize this invoice. Please configure it"
+" in the company: %s"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice_dian_document.py:0
+#, python-format
+msgid ""
+"The \"puntoDeVentaId\" is required to authorize this invoice. Please "
+"configure it in the company : %s"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice_dian_document.py:0
+#, python-format
+msgid "The Incoterm is not defined for this export type invoice"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,help:l10n_co_e_invoicing_comfiar.field_product_product__margin_percentage
+#: model:ir.model.fields,help:l10n_co_e_invoicing_comfiar.field_product_template__margin_percentage
+msgid "The cost price + this percentage will be the reference price"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/global_functions.py:0
+#, python-format
+msgid ""
+"The cretificate password or certificate file is not valid.\n"
+"Exception: %s"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,help:l10n_co_e_invoicing_comfiar.field_account_move__invoice_origin
+msgid "The document(s) that generated the invoice."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice_dian_document.py:0
+#, python-format
+msgid "The identification number is not found in the company contact: %s"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice.py:0
+#, python-format
+msgid "The invoice line %s has no reference"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice_dian_document.py:0
+#, python-format
+msgid ""
+"The notification group for Einvoice failures is not set.\n"
+"You won't be notified if something goes wrong.\n"
+"Please go to Settings > Company > Notification Group."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/res_partner.py:0
+#, python-format
+msgid "The partner '%s' does not have a Email."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,help:l10n_co_e_invoicing_comfiar.field_res_partner__check_mail_einv
+#: model:ir.model.fields,help:l10n_co_e_invoicing_comfiar.field_res_users__check_mail_einv
+msgid ""
+"This check allows to disable the automatic sending of the electronic invoice"
+" email at the moment of validating the status of the DIAN document"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_dian_document_view_tree
+msgid "Tipo"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.view_invoice_form
+msgid "Tipo Operacion"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_dian_document_view_search
+msgid "Tipo de Documento"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields.selection,name:l10n_co_e_invoicing_comfiar.selection__account_invoice_dian_document__output_dian_status_code__90
+msgid "TrackId no encontrado"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__transaction_date
+msgid "Transaction Date"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__transaction_id
+msgid "Transaction Id"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__transaction_output_invoice
+msgid "Transaction Output Invoice"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__transaction_response
+msgid "Transaction Response"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_move__trm
+msgid "Trm"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__type_account
+msgid "Type Document"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice_dian_document.py:0
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice_dian_document.py:0
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice_dian_document.py:0
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice_dian_document.py:0
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice_dian_document.py:0
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice_dian_document.py:0
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice_dian_document.py:0
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice_dian_document.py:0
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice_dian_document.py:0
+#: code:addons/l10n_co_e_invoicing_comfiar/models/res_company.py:0
+#, python-format
+msgid ""
+"Unknown Error,\n"
+"Status Code: %s,\n"
+"Reason: %s,\n"
+"\n"
+"Contact with your administrator or you can choose a journal with a Contingency Checkbook E-Invoicing sequence and change the Invoice Type to 'Factura por Contingencia Facturador'."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/res_company.py:0
+#, python-format
+msgid ""
+"Unknown Error,\n"
+"Status Code: %s,\n"
+"Reason: %s."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice_dian_document.py:0
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice_dian_document.py:0
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice_dian_document.py:0
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice_dian_document.py:0
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice_dian_document.py:0
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice_dian_document.py:0
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice_dian_document.py:0
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice_dian_document.py:0
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice_dian_document.py:0
+#: code:addons/l10n_co_e_invoicing_comfiar/models/res_company.py:0
+#, python-format
+msgid ""
+"Unknown Error: %s\n"
+"\n"
+"Contact with your administrator or you can choose a journal with a Contingency Checkbook E-Invoicing sequence and change the Invoice Type to 'Factura por Contingencia Facturador'."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/res_company.py:0
+#, python-format
+msgid ""
+"Unknown Error: %s\n"
+"."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_dian_document_view_form
+msgid "Update nroCbte"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_res_company__user_comfiar
+#: model:res.groups,name:l10n_co_e_invoicing_comfiar.group_invoice_dian_documen_user
+msgid "User"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields.selection,name:l10n_co_e_invoicing_comfiar.selection__account_invoice_dian_document__output_dian_status_code__99
+msgid "Validaciones contienen errores en campos mandatorios"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model,name:l10n_co_e_invoicing_comfiar.model_validate_account_move
+msgid "Validate Account Move"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_report_template_with_qr
+msgid "Vendor Bill"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_report_template_with_qr
+msgid "Vendor Refund"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_layout
+msgid "Web:"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__xml_file
+msgid "XML File"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__xml_file_send_comfiar
+msgid "XML File Send to Comfiar"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__xml_filename
+msgid "XML Filename"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_dian_document_view_form
+msgid "Xml Download"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice_dian_document.py:0
+#, python-format
+msgid "You cannot delete a document that has been sent to DIAN"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice.py:0
+#, python-format
+msgid ""
+"You do not have an active dian resolution, contact with your administrator."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice.py:0
+#, python-format
+msgid ""
+"Your Unit of Measure: '%s', has no Unit of Measure Code, contact with your "
+"administrator."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice_dian_document.py:0
+#, python-format
+msgid "Your invoice has not been validated"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice.py:0
+#, python-format
+msgid ""
+"Your product: '%s', has no reference price, contact with your administrator."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice.py:0
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice.py:0
+#, python-format
+msgid ""
+"Your tax: '%s', has negative amount or an amount equal to zero (0), the "
+"taxes must have an amount greater than zero (0), contact with your "
+"administrator."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice.py:0
+#, python-format
+msgid ""
+"Your tax: '%s', has negative amount, the taxes must have positive amount, "
+"contact with your administrator."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice.py:0
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice.py:0
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice.py:0
+#, python-format
+msgid ""
+"Your tax: '%s', has no e-invoicing tax group type, contact with your "
+"administrator."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice.py:0
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice.py:0
+#, python-format
+msgid ""
+"Your withholding tax: '%s', has amount equal to zero (0), the withholding "
+"taxes must have amount different to zero (0), contact with your "
+"administrator."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: code:addons/l10n_co_e_invoicing_comfiar/models/account_invoice.py:0
+#, python-format
+msgid ""
+"Your withholding tax: '%s', has positive amount, the withholding taxes must "
+"have negative amount, contact with your administrator."
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__zipped_file
+msgid "Zipped File"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__zipped_filename
+msgid "Zipped Filename"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model,name:l10n_co_e_invoicing_comfiar.model_account_invoice_dian_document
+msgid "account.invoice.dian.document"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model,name:l10n_co_e_invoicing_comfiar.model_account_invoice_dian_document_line
+msgid "account.invoice.dian.document.line"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.view_partner_property_form_chech_mail_einv
+msgid "e-Invoicing"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model,name:l10n_co_e_invoicing_comfiar.model_einvoice_notification_group
+msgid "einvoice.notification.group"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_bank_statement_import_journal_creation__is_einvoicing
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_journal__is_einvoicing
+msgid "electronic invoicing?"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields.selection,name:l10n_co_e_invoicing_comfiar.selection__ir_sequence__dian_type__e-invoicing
+msgid "facturación electrónica"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,help:l10n_co_e_invoicing_comfiar.field_res_company__attach_pdf
+msgid ""
+"habilita la opción de adjuntar el reporte de factura pdf generado desde Odoo"
+" en el comprobante publicado en la plataforma de Comfiar"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_res_company__in_refund_sent
+msgid "in_refund Sent"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.report_e_invoice_document
+msgid "on"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_res_company__out_invoice_sent
+msgid "out_invoice Sent"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_res_company__out_refund_sent
+msgid "out_refund Sent"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model,name:l10n_co_e_invoicing_comfiar.model_product_scheme
+msgid "product.scheme"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_product_scheme__scheme_agency_id
+msgid "schemeAgencyID"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_product_scheme__code
+msgid "schemeID"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_product_scheme__name
+msgid "schemeName"
+msgstr ""
+
+#. module: l10n_co_e_invoicing_comfiar
+#: model:ir.model.fields,help:l10n_co_e_invoicing_comfiar.field_product_product__reference_price
+#: model:ir.model.fields,help:l10n_co_e_invoicing_comfiar.field_product_template__reference_price
+msgid ""
+"use this field if the reference price does not depend on the cost price"
+msgstr ""

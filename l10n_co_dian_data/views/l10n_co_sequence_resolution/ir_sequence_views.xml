@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="sequence_view_resolution" model="ir.ui.view">
+            <field name="model">ir.sequence</field>
+            <field name="inherit_id" ref="base.sequence_view"/>
+            <field name="arch" type="xml">
+                <field name="use_date_range" position="after">
+                    <field name="use_dian_control"/>
+                    <field name="dian_type" attrs="{'invisible': [('use_dian_control', '!=', True)], 'required': [('use_dian_control', '=', True)]}"/>
+                </field>
+
+                <field name="implementation" position="attributes">
+                    <attribute name="attrs">{'invisible': [('use_dian_control', '=', True)]}</attribute>
+                </field>
+
+                <field name="suffix" position="attributes">
+                    <attribute name="attrs">{'invisible': [('use_dian_control', '=', True)]}</attribute>
+                </field>
+
+                <field name="use_date_range" position="attributes">
+                    <attribute name="attrs">{'invisible': [('use_dian_control', '=', True)]}</attribute>
+                </field>
+
+                <field name="padding" position="attributes">
+                    <attribute name="attrs">{'invisible': [('use_dian_control', '=', True)]}</attribute>
+                </field>
+
+                <field name="number_increment" position="attributes">
+                    <attribute name="attrs">{'invisible': [('use_dian_control', '=', True)]}</attribute>
+                    <attribute name="widget">char</attribute>
+                </field>
+
+                <xpath expr="//page/group/group[1]" position="after">
+                    <group string="Warn From" attrs="{'invisible': [('use_dian_control', '!=', True)]}">
+                        <field name="remaining_numbers" widget="char" attrs="{'required': [('use_dian_control', '=', True)]}"/>
+                        <field name="remaining_days" widget="char" attrs="{'required': [('use_dian_control', '=', True)]}"/>
+                    </group>
+                </xpath>
+
+                <field name="date_from" position="before">
+                    <field name="use_dian_control" readonly="1" invisible="1"/>
+                    <field name="prefix" readonly="1"/>
+                    <field name="resolution_number" attrs="{'required': [('use_dian_control', '=', True)]}"/>
+                </field>
+
+                <field name="date_to" position="after">
+                    <field name="number_from" widget="char" attrs="{'required': [('use_dian_control', '=', True)]}"/>
+                    <field name="number_to" widget="char" attrs="{'required': [('use_dian_control', '=', True)]}"/>
+                    <field name="active_resolution" readonly="1"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

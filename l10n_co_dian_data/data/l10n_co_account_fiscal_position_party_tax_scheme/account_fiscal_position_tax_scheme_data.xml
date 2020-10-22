@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="account_fiscal_position_tax_scheme_01" model="account.fiscal.position.tax.scheme">
+            <field name="name">IVA</field>
+            <field name="code">01</field>
+        </record>
+        <record id="account_fiscal_position_tax_scheme_02" model="account.fiscal.position.tax.scheme">
+            <field name="name">IC</field>
+            <field name="code">02</field>
+        </record>
+        <record id="account_fiscal_position_tax_scheme_03" model="account.fiscal.position.tax.scheme">
+            <field name="name">ICA</field>
+            <field name="code">03</field>
+        </record>
+        <record id="account_fiscal_position_tax_scheme_04" model="account.fiscal.position.tax.scheme">
+            <field name="name">INC</field>
+            <field name="code">04</field>
+        </record>
+        <record id="account_fiscal_position_tax_scheme_05" model="account.fiscal.position.tax.scheme">
+            <field name="name">ReteIVA</field>
+            <field name="code">05</field>
+        </record>
+        <record id="account_fiscal_position_tax_scheme_06" model="account.fiscal.position.tax.scheme">
+            <field name="name">ReteFuente</field>
+            <field name="code">06</field>
+        </record>
+        <record id="account_fiscal_position_tax_scheme_07" model="account.fiscal.position.tax.scheme">
+            <field name="name">ReteICA</field>
+            <field name="code">07</field>
+        </record>
+        <record id="account_fiscal_position_tax_scheme_20" model="account.fiscal.position.tax.scheme">
+            <field name="name">FtoHorticultura</field>
+            <field name="code">20</field>
+        </record>
+        <record id="account_fiscal_position_tax_scheme_21" model="account.fiscal.position.tax.scheme">
+            <field name="name">Timbre</field>
+            <field name="code">21</field>
+        </record>
+        <record id="account_fiscal_position_tax_scheme_22" model="account.fiscal.position.tax.scheme">
+            <field name="name">INC Bolsas</field>
+            <field name="code">22</field>
+        </record>
+        <record id="account_fiscal_position_tax_scheme_23" model="account.fiscal.position.tax.scheme">
+            <field name="name">INCarbono</field>
+            <field name="code">23</field>
+        </record>
+        <record id="account_fiscal_position_tax_scheme_24" model="account.fiscal.position.tax.scheme">
+            <field name="name">INCombustibles</field>
+            <field name="code">23</field>
+        </record>
+        <record id="account_fiscal_position_tax_scheme_25" model="account.fiscal.position.tax.scheme">
+            <field name="name">Sobretasa Combustibles</field>
+            <field name="code">25</field>
+        </record>
+        <record id="account_fiscal_position_tax_scheme_26" model="account.fiscal.position.tax.scheme">
+            <field name="name">Sordicom</field>
+            <field name="code">26</field>
+        </record>
+        <record id="account_fiscal_position_tax_scheme_za" model="account.fiscal.position.tax.scheme">
+            <field name="name">IVA e INC</field>
+            <field name="code">ZA</field>
+        </record>
+        <record id="account_fiscal_position_tax_scheme_zz" model="account.fiscal.position.tax.scheme">
+            <field name="name">No Aplica</field>
+            <field name="code">ZZ</field>
+        </record>
+    </data>
+</odoo>

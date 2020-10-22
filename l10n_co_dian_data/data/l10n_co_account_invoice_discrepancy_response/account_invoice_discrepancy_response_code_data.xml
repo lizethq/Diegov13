@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="account_invoice_discrepancy_response_code_credit_01"
+            model="account.invoice.discrepancy.response.code">
+            <field name="name">Devolución parcial de los bienes y/o no aceptación parcial del servicio</field>
+            <field name="code">1</field>
+            <field name="type">credit</field>
+        </record>
+        <record id="account_invoice_discrepancy_response_code_credit_02"
+            model="account.invoice.discrepancy.response.code">
+            <field name="name">Anulación de factura electrónica</field>
+            <field name="code">2</field>
+            <field name="type">credit</field>
+        </record>
+        <record id="account_invoice_discrepancy_response_code_credit_03"
+            model="account.invoice.discrepancy.response.code">
+            <field name="name">Rebaja o descuento parcial o total</field>
+            <field name="code">3</field>
+            <field name="type">credit</field>
+        </record>
+        <record id="account_invoice_discrepancy_response_code_credit_04"
+            model="account.invoice.discrepancy.response.code">
+            <field name="name">Ajuste de precio</field>
+            <field name="code">4</field>
+            <field name="type">credit</field>
+        </record>
+        <record id="account_invoice_discrepancy_response_code_credit_05"
+            model="account.invoice.discrepancy.response.code">
+            <field name="name">Otros</field>
+            <field name="code">5</field>
+            <field name="type">credit</field>
+        </record>
+        <record id="account_invoice_discrepancy_response_code_debit_01"
+            model="account.invoice.discrepancy.response.code">
+            <field name="name">Intereses</field>
+            <field name="code">1</field>
+            <field name="type">debit</field>
+        </record>
+        <record id="account_invoice_discrepancy_response_code_debit_02"
+            model="account.invoice.discrepancy.response.code">
+            <field name="name">Gastos por cobrar</field>
+            <field name="code">2</field>
+            <field name="type">debit</field>
+        </record>
+        <record id="account_invoice_discrepancy_response_code_debit_03"
+            model="account.invoice.discrepancy.response.code">
+            <field name="name">Cambio del valor</field>
+            <field name="code">3</field>
+            <field name="type">debit</field>
+        </record>
+        <record id="account_invoice_discrepancy_response_code_debit_04"
+            model="account.invoice.discrepancy.response.code">
+            <field name="name">Otros</field>
+            <field name="code">4</field>
+            <field name="type">debit</field>
+        </record>
+</odoo>

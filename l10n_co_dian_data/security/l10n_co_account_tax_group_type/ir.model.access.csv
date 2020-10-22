@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_account_tax_group_type_user,access_account_tax_group_type_user,model_account_tax_group_type,,1,0,0,0
+access_account_tax_group_type_manager,access_account_tax_group_type_manager,model_account_tax_group_type,base.group_system,1,1,1,1

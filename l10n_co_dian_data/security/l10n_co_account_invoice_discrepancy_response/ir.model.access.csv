@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_account_invoice_discrepancy_response_code_manager,account.invoice.discrepancy.response.code.manager,model_account_invoice_discrepancy_response_code,account.group_account_manager,1,1,1,1
+access_account_invoice_discrepancy_response_code_users,account.invoice.discrepancy.response.code.users,model_account_invoice_discrepancy_response_code,,1,0,0,0

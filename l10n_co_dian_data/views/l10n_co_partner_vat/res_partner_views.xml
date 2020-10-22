@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_partner_form_partner_vat" model="ir.ui.view">
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base_vat.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="property_account_position_id" position="replace"/>
+
+                <field name="country_id" position="attributes">
+                    <attribute name="required">1</attribute>
+                </field>
+                <field name="website" position="before">
+                    <field name="property_account_position_id" options="{'no_create': True, 'no_open': True}"/>
+                    <field name="document_type_id" widget="selection"/>
+                    <field name="identification_document" attrs="{'required': [('document_type_id', '!=', False)]}"/>
+                    <field name="document_type_code" invisible="1"/>
+                    <field name="check_digit" attrs="{'invisible': [('document_type_code', '!=', '31')], 'required': [('document_type_code', '=', '31')]}"/>
+                    <field name="vat" invisible="1"/>
+                </field>
+                <group name="fiscal_information" position="replace"/>
+            </field>
+        </record>
+
+        <record id="view_res_partner_filter_partner_vat" model="ir.ui.view">
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="vat" string="Identification Document"/>
+                    <field name="property_account_position_id"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

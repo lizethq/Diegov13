@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <record id="paperformat_electronic_invoice" model="report.paperformat">
+            <field name="name">Electronic Invoice</field>
+            <field name="default" eval="True"/>
+            <field name="format">Letter</field>
+            <!-- <field name="page_height">80</field>
+            <field name="page_width">175</field> -->
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">40</field>
+            <field name="margin_bottom">20</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">35</field>
+            <field name="dpi">80</field>
+        </record>
+
+        <report
+            id="account_e_invoices"
+            model="account.move"
+            string="Electronic Invoice"
+            report_type="qweb-pdf"
+            paperformat="l10n_co_e_invoicing.paperformat_electronic_invoice"
+            name="l10n_co_e_invoicing.report_e_invoice"
+            file="l10n_co_e_invoicing.report_e_invoice"
+            attachment="(object.state == 'posted') and ((object.name or 'INV').replace('/','_')+'.pdf')"
+            print_report_name="(object._get_report_base_filename())"
+        />
+
+  </data>
+</odoo>
