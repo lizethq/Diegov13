@@ -64,13 +64,19 @@ class AccountInvoice(models.Model):
 		_logger.info('validatee')
 
 		res = super(AccountInvoice, self).post()
+		if self.company_id.einvoicing_enabled and self.company_id.type_billing == '2':
+			self.post_comfiar()
+
+		return res
+
+
+	def post_comfiar(self):
 		for record in self:
 			_logger.info(record.type)
 			if record.company_id.einvoicing_enabled and record.journal_id.is_einvoicing:
 				if record.type in ("out_invoice", "out_refund"):
 					company_currency = record.company_id.currency_id
 					rate = 1
-					# date = record._get_currency_rate_date() or fields.Date.context_today(record)
 					date = fields.Date.context_today(record)
 					_logger.info(record.currency_id)
 					_logger.info(company_currency)
@@ -82,13 +88,13 @@ class AccountInvoice(models.Model):
 						_logger.info(rate)
 						record.trm = rate
 
-					if record.type == 'out_refund' and record.refund_type == 'debit':
-						type_account = '05'	# ND
-					elif record.type == 'out_refund' and record.refund_type != 'debit':
-						type_account = '04' # NC
-					else:
-						type_account = '01'	# Invoice
-					
+						if record.type == 'out_refund' and record.refund_type == 'debit':
+							type_account = '05'  # ND
+						elif record.type == 'out_refund' and record.refund_type != 'debit':
+							type_account = '04'  # NC
+						else:
+							type_account = '01'  # Invoice
+
 					attach_pdf = False
 					if record.company_id.attach_pdf:
 						attach_pdf = True
@@ -101,9 +107,9 @@ class AccountInvoice(models.Model):
 						'type_account': type_account,
 						'attach_pdf': attach_pdf
 					})
-					dian_document.action_set_files()
+					dian_document.comf_action_set_files()
 					_logger.info(record.send_invoice_to_dian)
-					_logger.info(record.invoice_type_code )
+					_logger.info(record.invoice_type_code)
 					if record.send_invoice_to_dian == '0' and len(self) == 1:
 						if record.invoice_type_code in ('01', '02'):
 							dian_document.get_sesion_comfiar()
@@ -120,14 +126,8 @@ class AccountInvoice(models.Model):
 								dian_document.output_comfiar_response = 'Ocurrio un error durante la publicación \
 																		de esta factura. Por favor validar el estado de este \
 																		documento o reprocesarlo \n\n' + str(e)
-							# count = 0
-							# while dian_document.output_comfiar_status_code == 'ACEPTADO' and count < 3:
-							# 	dian_document.RespuestaComprobante()
-							# 	count += 1
-					# 	elif record.invoice_type_code == '04':
-					# 		dian_document.action_send_mail()
 
-		return res
+
 
 	def _get_pdf_file(self):
 		template = self.env['ir.actions.report'].browse(self.dian_document_lines.company_id.report_template.id)

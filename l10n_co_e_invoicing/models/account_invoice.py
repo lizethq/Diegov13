@@ -60,7 +60,13 @@ class AccountInvoice(models.Model):
 
 		res = super(AccountInvoice, self).post()
 
-		_logger.info(self.type)
+		if self.company_id.einvoicing_enabled and self.company_id.type_billing == '1':
+			self.post_directa()
+
+		return res
+
+	def post_directa(self):
+
 		if self.company_id.einvoicing_enabled:
 			if self.type in ("out_invoice", "out_invoice_note", "out_refund"):
 				company_currency = self.company_id.currency_id
@@ -99,7 +105,9 @@ class AccountInvoice(models.Model):
 					elif self.invoice_type_code == '04':
 						dian_document.action_send_mail()
 
-		return res
+
+
+
 
 	def _get_pdf_file(self):
 		template = self.env['ir.actions.report'].browse(self.dian_document_lines.company_id.report_template.id)

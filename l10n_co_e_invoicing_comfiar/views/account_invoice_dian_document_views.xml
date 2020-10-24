@@ -45,7 +45,7 @@
                 <form string="DIAN Document">
                     <header>
                         <field name="state" widget="statusbar" statusbar_visible="draft,sent,done,cancel"/>
-                        <!-- <button name="action_set_files"
+                        <!-- <button name="comf_action_set_files"
                             string="Set Files"
                             type="object"
                             states="draft,sent"

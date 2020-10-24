@@ -51,6 +51,7 @@ class ResCompany(models.Model):
         string='Notification Group')
     get_numbering_range_response = fields.Text(string='GetNumberingRange Response')
     tributary_information = fields.Text(string='Tributary Information')
+    type_billing = fields.Selection([('1', 'Facturacion Directa')],string='Tipo de envio a la dian')
 
 
     @api.onchange('signature_policy_url')

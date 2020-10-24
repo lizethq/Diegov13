@@ -356,7 +356,7 @@ class AccountInvoiceDianDocument(models.Model):
         return True
 
 
-    def _set_filenames(self):
+    def _comf_set_filenames(self):
         #nnnnnnnnnn: NIT del Facturador Electrónico sin DV, de diez (10) dígitos
         # alineados a la derecha y relleno con ceros a la izquierda.
         if self.company_id.partner_id.identification_document:
@@ -572,7 +572,7 @@ class AccountInvoiceDianDocument(models.Model):
             'PayableAmount': '{:.2f}'.format(PayableAmount)}
 
 
-    def _get_invoice_values(self):
+    def __comf_get_invoice_values(self):
         _logger.info('***invoice_values pre_xml_values')
         xml_values = self._get_xml_values(False)
         _logger.info('***invoice_values pos_xml_values')
@@ -622,7 +622,7 @@ class AccountInvoiceDianDocument(models.Model):
     #     return xml_values
 
 
-    # def _get_invoice_values3(self):
+    # def __comf_get_invoice_values3(self):
     #     msg1 = _("Your journal: %s, has no a invoice sequence")
     #     msg2 = _("Your active dian resolution has no technical key, "
     #              "contact with your administrator.")
@@ -663,7 +663,7 @@ class AccountInvoiceDianDocument(models.Model):
     #     return xml_values
 
 
-    def _get_credit_note_values(self):
+    def __comf_get_credit_note_values(self):
         xml_values = self._get_xml_values(False)
         # xml_values.update(Prefix = self._get_nroCbte()['prefix'])
 
@@ -708,7 +708,7 @@ class AccountInvoiceDianDocument(models.Model):
         return xml_values
 
 
-    def _get_debit_note_values(self):
+    def __comf_get_debit_note_values(self):
         xml_values = self._get_xml_values(False)
         # xml_values.update(Prefix = self._get_nroCbte()['prefix'])
         
@@ -755,7 +755,7 @@ class AccountInvoiceDianDocument(models.Model):
         return xml_values
 
 
-    # def _get_credit_note_valuesc(self):
+    # def __comf_get_credit_note_valuesc(self):
     #     msg = _("Your journal: %s, has no a credit note sequence")
     #     if not self.invoice_id.journal_id.refund_sequence_id:
     #         raise UserError(msg % self.invoice_id.journal_id.name)
@@ -778,7 +778,7 @@ class AccountInvoiceDianDocument(models.Model):
     #     return xml_values
 
 
-    # def _get_debit_note_valuesc(self):
+    # def __comf_get_debit_note_valuesc(self):
     #     msg = _("Your journal: %s, has no a credit note sequence")
     #     if not self.invoice_id.journal_id.refund_sequence_id:
     #         raise UserError(msg % self.invoice_id.journal_id.name)
@@ -802,18 +802,18 @@ class AccountInvoiceDianDocument(models.Model):
     #     xml_values['DebitNoteLines'] = self.invoice_id._get_invoice_lines()
     #     return xml_values
 
-    def _get_xml_file(self):
+    def __comf_get_xml_file(self):
         # if self.invoice_id.type == "out_invoice":
         #     xml_without_signature = global_functions.get_template_xml(
-        #         self._get_invoice_values(),
+        #         self.__comf_get_invoice_values(),
         #         'Invoice')
         # elif self.invoice_id.type == "out_refund":
         #     xml_without_signature = global_functions.get_template_xml(
-        #         self._get_credit_note_values(),
+        #         self.__comf_get_credit_note_values(),
         #         'CreditNote')
         # elif self.invoice_id.type == "in_refund":
         #     xml_without_signature = global_functions.get_template_xml(
-        #         self._get_debit_note_values(),
+        #         self.__comf_get_debit_note_values(),
         #         'DebitNote')
 
         _logger.info('credit')
@@ -823,32 +823,32 @@ class AccountInvoiceDianDocument(models.Model):
             if self.company_id.comfiar_send_mail:
                 _logger.info('*** Mail Comfiar -- pre_template_xml')
                 xml_without_signature = global_functions.get_template_xml(
-                    self._get_invoice_values(),
+                    self.__comf_get_invoice_values(),
                     'Invoice_with_receptor')
                 _logger.info('*** Mail Comfiar -- pos_template_xml')
             else:
                 _logger.info('*** OHNE Mail Comfiar -- pre_template_xml')
                 xml_without_signature = global_functions.get_template_xml(
-                    self._get_invoice_values(),
+                    self.__comf_get_invoice_values(),
                     'Invoice')
                 _logger.info('\n\n*** OHNE Mail Comfiar -- pos_template_xml')
         elif self.invoice_id.type == "out_refund" and self.invoice_id.refund_type != "debit":
             if self.company_id.comfiar_send_mail:
                 xml_without_signature = global_functions.get_template_xml(
-                    self._get_credit_note_values(),
+                    self.__comf_get_credit_note_values(),
                     'CreditNote_with_receptor')
             else:
                 xml_without_signature = global_functions.get_template_xml(
-                    self._get_credit_note_values(),
+                    self.__comf_get_credit_note_values(),
                     'CreditNote')
         elif self.invoice_id.type == "out_refund" and self.invoice_id.refund_type == "debit":
             if self.company_id.comfiar_send_mail:
                 xml_without_signature = global_functions.get_template_xml(
-                    self._get_debit_note_values(),
+                    self.__comf_get_debit_note_values(),
                     'DebitNote_with_receptor')
             else:
                 xml_without_signature = global_functions.get_template_xml(
-                    self._get_debit_note_values(),
+                    self.__comf_get_debit_note_values(),
                     'DebitNote')
         # xml_with_signature = global_functions.get_xml_with_signature(
         #     xml_without_signature,
@@ -873,10 +873,10 @@ class AccountInvoiceDianDocument(models.Model):
         zipfile.close()
         return output.getvalue()
 
-    def action_set_files(self):
+    def comf_action_set_files(self):
         if not self.xml_filename or not self.zipped_filename:
-            self._set_filenames()
-        self.write({'xml_file_send_comfiar': b64encode(self._get_xml_file()).decode("utf-8", "ignore")})
+            self._comf_set_filenames()
+        self.write({'xml_file_send_comfiar': b64encode(self.__comf_get_xml_file()).decode("utf-8", "ignore")})
         # self.write({'zipped_file': b64encode(self._get_zipped_file()).decode("utf-8", "ignore")})
 
 
@@ -1108,7 +1108,7 @@ class AccountInvoiceDianDocument(models.Model):
     #         raise ValidationError(response.status_code)
 
     # def action_reprocess(self):
-    #     self.write({'xml_file': b64encode(self._get_xml_file()).decode("utf-8", "ignore")})
+    #     self.write({'xml_file': b64encode(self.__comf_get_xml_file()).decode("utf-8", "ignore")})
     #     self.write({'zipped_file': b64encode(self._get_zipped_file()).decode("utf-8", "ignore")})
     #     self.sent_zipped_file()
     #     self.GetStatusZip()
@@ -1511,7 +1511,7 @@ class AccountInvoiceDianDocument(models.Model):
             raise ValidationError(msg2 % (e))
 
     def reprocesar(self):
-        self.write({'xml_file_send_comfiar': b64encode(self._get_xml_file()).decode("utf-8", "ignore")})
+        self.write({'xml_file_send_comfiar': b64encode(self.__comf_get_xml_file()).decode("utf-8", "ignore")})
         # self.write({'zipped_file': b64encode(self._get_zipped_file()).decode("utf-8", "ignore")})
         self.AutorizarComprobanteAsincrono()
         resp = False
