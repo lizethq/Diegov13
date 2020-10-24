@@ -56,12 +56,15 @@ class ResCompany(models.Model):
 
     @api.onchange('signature_policy_url')
     def onchange_signature_policy_url(self):
+        values = {}
+        if not self.signature_policy_url:
+            return values
         if not url(self.signature_policy_url):
             raise ValidationError(_('Invalid URL.'))
 
     def write(self, vals):
         rec = super(ResCompany, self).write(vals)
-        get_pkcs12(self.certificate_file, self.certificate_password)
+        #get_pkcs12(self.certificate_file, self.certificate_password)
 
         return rec
 

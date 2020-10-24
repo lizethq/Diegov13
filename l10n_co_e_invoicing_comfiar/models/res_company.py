@@ -4,7 +4,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from validators import url
-from . global_functions import get_pkcs12
+#from . global_functions import get_pkcs12
 from . import global_functions
 from odoo import api, models, fields, _
 from odoo.exceptions import ValidationError
@@ -73,10 +73,6 @@ class ResCompany(models.Model):
     attach_pdf = fields.Boolean(string="Adjuntar Pdf", default=False, help='habilita la opción de adjuntar el reporte de factura pdf generado desde Odoo en el comprobante publicado en la plataforma de Comfiar')
     type_billing = fields.Selection(selection_add=[('2', 'Facturacion Comfiar')])
 
-    @api.onchange('signature_policy_url')
-    def onchange_signature_policy_url(self):
-        if not url(self.signature_policy_url):
-            raise ValidationError(_('Invalid URL.'))
 
     # def write(self, vals):
     #     rec = super(ResCompany, self).write(vals)
