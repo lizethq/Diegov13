@@ -60,7 +60,7 @@ class AccountInvoice(models.Model):
 
 		res = super(AccountInvoice, self).post()
 
-		if self.company_id.einvoicing_enabled:
+		if self.company_id.einvoicing_enabled and self.company_id.type_billing == '1':
 			self.post_directa()
 
 		return res

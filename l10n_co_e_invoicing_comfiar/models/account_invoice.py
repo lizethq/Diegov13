@@ -64,7 +64,7 @@ class AccountInvoice(models.Model):
 		_logger.info('validatee')
 
 		res = super(AccountInvoice, self).post()
-		if self.company_id.einvoicing_enabled:
+		if self.company_id.einvoicing_enabled and self.company_id.type_billing == '2':
 			self.post_comfiar()
 
 		return res
