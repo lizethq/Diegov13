@@ -9,9 +9,9 @@
                     <page string="COMFIAR" name="Comfiar">
                         <group>
                             <group string="Credenciales COMFIAR">
-                                <field name="user_comfiar" attrs="{'required': [('einvoicing_enabled', '=', True),('type_billing', '=', '2')]}"/>
-                                <field name="pwd_comfiar" attrs="{'required': [('einvoicing_enabled', '=', True),('type_billing', '=', '2')]}" password="True"/>
-                                <field name="formatoId" attrs="{'required': [('einvoicing_enabled', '=', True),('type_billing', '=', '2')]}"/>
+                                <field name="user_comfiar" attrs="{'required': [('einvoicing_enabled', '=', True)]}"/>
+                                <field name="pwd_comfiar" attrs="{'required': [('einvoicing_enabled', '=', True)]}" password="True"/>
+                                <field name="formatoId" attrs="{'required': [('einvoicing_enabled', '=', True)]}"/>
                                 <field name="comfiar_send_mail"/>
                                 <field name="odoo_send_mail_einv"/>
                                 <field name="attach_pdf"/>

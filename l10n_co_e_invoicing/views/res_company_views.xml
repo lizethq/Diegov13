@@ -8,18 +8,17 @@
                 <xpath expr="//notebook" position="inside">
                     <page name="einvoicing" string="E-Invoicing">
                         <group>
-                            <field name="type_billing"/>
                             <field name="einvoicing_enabled"/>
                             <field name="out_invoice_sent"/>
                             <field name="out_refund_sent"/>
                             <field name="in_refund_sent"/>
                             <field name="profile_execution_id" attrs="{'required': [('einvoicing_enabled', '=', True)]}"/>
-                            <field name="test_set_id" attrs="{'required': [('einvoicing_enabled', '=', True),('type_billing', '=', '1')]}"/>
-                            <field name="software_id" attrs="{'required': [('einvoicing_enabled', '=', True),('type_billing', '=', '1')]}"/>
-                            <field name="software_pin" attrs="{'required': [('einvoicing_enabled', '=', True),('type_billing', '=', '1')]}"/>
+                            <field name="test_set_id" attrs="{'required': [('einvoicing_enabled', '=', True)]}"/>
+                            <field name="software_id" attrs="{'required': [('einvoicing_enabled', '=', True)]}"/>
+                            <field name="software_pin" attrs="{'required': [('einvoicing_enabled', '=', True)]}"/>
                             <field name="certificate_filename" invisible="1"/>
-                            <field name="certificate_file" widget="binary"  filename="certificate_filename" attrs="{'required': [('einvoicing_enabled', '=', True),('type_billing', '=', '1')]}"/>
-                            <field name="certificate_password" attrs="{'required': [('einvoicing_enabled', '=', True),('type_billing', '=', '1')]}"/>
+                            <field name="certificate_file" widget="binary"  filename="certificate_filename" attrs="{'required': [('einvoicing_enabled', '=', True)]}"/>
+                            <field name="certificate_password" attrs="{'required': [('einvoicing_enabled', '=', True)]}"/>
                             <field name="files_path"/>
                             <field name="einvoicing_email"/>
                             <field name="signature_policy_url" attrs="{'required': [('einvoicing_enabled', '=', True)]}"/>
