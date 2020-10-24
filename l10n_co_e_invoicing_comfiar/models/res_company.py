@@ -71,7 +71,7 @@ class ResCompany(models.Model):
     get_numbering_range_response = fields.Text(string='GetNumberingRange Response')
     tributary_information = fields.Text(string='Información Tributaria')
     attach_pdf = fields.Boolean(string="Adjuntar Pdf", default=False, help='habilita la opción de adjuntar el reporte de factura pdf generado desde Odoo en el comprobante publicado en la plataforma de Comfiar')
-    type_billing = fields.Selection(selection_add=[('2', 'Facturacion Comfiar')])
+    #type_billing = fields.Selection(selection_add=[('2', 'Facturacion Comfiar')])
 
     @api.onchange('signature_policy_url')
     def onchange_signature_policy_url(self):
