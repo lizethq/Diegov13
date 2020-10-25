@@ -93,7 +93,8 @@ class AccountInvoiceDianDocument(models.Model):
     type_account = fields.Selection(
         [('debit', 'Debit Note'),
          ('credit', 'Credit Note'),
-         ('invoice', 'Invoice')])
+         ('invoice', 'Invoice'),
+         ('other', 'other')])
 
     def go_to_dian_document(self):
         return {
