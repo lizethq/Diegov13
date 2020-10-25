@@ -8,7 +8,7 @@
                     decoration-info="state=='draft'"
                     decoration-muted="state=='cancel'">
                     <field name="invoice_id"/>
-                    <field name="directa_type_account" string="Tipo"/>
+                    <field name="type_account" string="Tipo"/>
                     <field name="cufe_cude"/>
                     <field name="xml_filename"/>
                     <field name="state"/>

@@ -90,17 +90,12 @@ class AccountInvoiceDianDocument(models.Model):
         string='Destination Environment of Document',
         related='company_id.profile_execution_id',
         store=False)
-    directa_type_account = fields.Selection(
-        [('debit', 'Debit Note'),
-         ('credit', 'Credit Note'),
-         ('invoice', 'Invoice'),
-         ('other', 'other')])
-    
     type_account = fields.Selection(
         [('debit', 'Debit Note'),
          ('credit', 'Credit Note'),
          ('invoice', 'Invoice'),
          ('other', 'other')])
+
 
     def go_to_dian_document(self):
         return {

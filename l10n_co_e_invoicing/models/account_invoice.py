@@ -84,17 +84,17 @@ class AccountInvoice(models.Model):
 					self.trm = rate
 
 				if self.type == 'out_invoice_note' and self.refund_type == 'debit':
-					directa_type_account = 'debit'
+					type_account = 'debit'
 				elif self.type == 'out_refund' and self.refund_type != 'debit':
-					directa_type_account = 'credit'
+					type_account = 'credit'
 				else:
-					directa_type_account = 'invoice'
+					type_account = 'invoice'
 
 				dian_document_obj = self.env['account.invoice.dian.document']
 				dian_document = dian_document_obj.create({
 					'invoice_id': self.id,
 					'company_id': self.company_id.id,
-					'directa_type_account': directa_type_account
+					'type_account': type_account
 				})
 				dian_document.action_set_files()
 				_logger.info(self.send_invoice_to_dian)
