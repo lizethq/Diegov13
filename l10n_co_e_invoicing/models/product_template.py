@@ -11,7 +11,7 @@ class ProductTemplate(models.Model):
 
     @api.model
     def _default_product_scheme(self):
-        return self.env['product.scheme'].search([('code', '=', '999' )]).id
+        return self.env['product.scheme'].search([('code', '=', '999' )],limit=1).id
 
     margin_percentage = fields.Float(
         string='Margin Percentage',

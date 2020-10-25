@@ -11,8 +11,6 @@ from . import account_journal
 from . import account_invoice
 from . import account_invoice_line
 from . import account_invoice_dian_document
-from . import product_scheme
-from . import product_template
 from . import einvoice_notification_group
 from . import account_validate_account_move
 

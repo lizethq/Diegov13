@@ -20,9 +20,6 @@
         ],
     },
     "data": [
-        'security/account_invoice_dian_document_security.xml',
-        'security/ir.model.access.csv',
-        "data/product_scheme_data.xml",
         "views/account_invoice_views.xml",
         "views/account_journal_views.xml",
         "views/account_invoice_dian_document_views.xml",
