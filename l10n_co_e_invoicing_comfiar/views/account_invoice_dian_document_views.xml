@@ -8,7 +8,7 @@
                     decoration-info="state=='draft'"
                     decoration-muted="state=='cancel'">
                     <field name="invoice_id"/>
-                    <field name="type_account" string="Tipo"/>
+                    <field name="comf_type_account" string="Tipo"/>
                     <field name="cufe_cude"/>
                     <field name="xml_filename"/>
                     <field name="output_comfiar_status_code"/>
@@ -27,13 +27,13 @@
             <field name="arch" type="xml">
                 <search string="Search Description">
                     <field name="invoice_id"/>
-                    <field name="type_account"/>
+                    <field name="comf_type_account"/>
                     <field name="output_comfiar_status_code"/>
 
                     <group string="Group By" name="groupby">
                         <filter name="status_groupby" string="Status Comfiar" context="{'group_by': 'output_comfiar_status_code'}"/>
                         <filter name="createdate_groupby" string="Fecha de Creación" context="{'group_by': 'create_date:month'}"/>
-                        <filter name="type_groupby" string="Tipo de Documento" context="{'group_by': 'type_account'}"/>
+                        <filter name="type_groupby" string="Tipo de Documento" context="{'group_by': 'comf_type_account'}"/>
                     </group>
                 </search>
             </field>
@@ -153,7 +153,7 @@ It is possible that the voucher consulted does not correspond to the Odoo invoic
                                         <field name="transaction_pdv" readonly="1"/>
                                     </group>
                                     <group>
-                                        <field name="type_account" readonly="1"/>
+                                        <field name="comf_type_account" readonly="1"/>
                                         <field name="prefix" readonly="1"/>
                                         <field name="nroCbte" readonly="1"/>
                                     </group>

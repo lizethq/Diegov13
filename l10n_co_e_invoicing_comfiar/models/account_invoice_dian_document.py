@@ -99,7 +99,7 @@ class AccountInvoiceDianDocument(models.Model):
     # INFO TRANSACCION
     prefix = fields.Char(string='Prefix')
     nroCbte = fields.Char(string='Number Document')
-    type_account = fields.Selection(
+    comf_type_account = fields.Selection(
         [('05', 'Debit Note'),
          ('04', 'Credit Note'),
          ('01', 'Invoice')], string='Type Document')
