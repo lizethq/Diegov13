@@ -429,7 +429,7 @@ msgid "Credenciales COMFIAR"
 msgstr ""
 
 #. module: l10n_co_e_invoicing_comfiar
-#: model:ir.model.fields.selection,name:l10n_co_e_invoicing_comfiar.selection__account_invoice_dian_document__type_account__04
+#: model:ir.model.fields.selection,name:l10n_co_e_invoicing_comfiar.selection__account_invoice_dian_document__comf_type_account__04
 msgid "Credit Note"
 msgstr ""
 
@@ -484,7 +484,7 @@ msgid "DIAN Type"
 msgstr ""
 
 #. module: l10n_co_e_invoicing_comfiar
-#: model:ir.model.fields.selection,name:l10n_co_e_invoicing_comfiar.selection__account_invoice_dian_document__type_account__05
+#: model:ir.model.fields.selection,name:l10n_co_e_invoicing_comfiar.selection__account_invoice_dian_document__comf_type_account__05
 msgid "Debit Note"
 msgstr ""
 
@@ -768,7 +768,7 @@ msgstr ""
 
 #. module: l10n_co_e_invoicing_comfiar
 #: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__invoice_id
-#: model:ir.model.fields.selection,name:l10n_co_e_invoicing_comfiar.selection__account_invoice_dian_document__type_account__01
+#: model:ir.model.fields.selection,name:l10n_co_e_invoicing_comfiar.selection__account_invoice_dian_document__comf_type_account__01
 #: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_dian_document_view_form
 #: model_terms:ir.ui.view,arch_db:l10n_co_e_invoicing_comfiar.account_invoice_report_template_with_qr
 msgid "Invoice"
@@ -1281,7 +1281,7 @@ msgid "Trm"
 msgstr ""
 
 #. module: l10n_co_e_invoicing_comfiar
-#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__type_account
+#: model:ir.model.fields,field_description:l10n_co_e_invoicing_comfiar.field_account_invoice_dian_document__comf_type_account
 msgid "Type Document"
 msgstr ""
 

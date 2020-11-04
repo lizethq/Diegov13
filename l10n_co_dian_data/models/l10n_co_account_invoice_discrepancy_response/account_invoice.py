@@ -27,7 +27,7 @@ class AccountInvoice(models.Model):
 		
 		res = super(AccountInvoice, self)._get_sequence()
 		journal = self.journal_id
-		if self.type == 'out_refund' and self.refund_type == 'debit' and journal.debit_note_sequence_id:
+		if self.type == 'out_invoice_note' and self.refund_type == 'debit' and journal.debit_note_sequence_id:
 			return journal.debit_note_sequence_id
 		return res
 

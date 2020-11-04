@@ -46,36 +46,8 @@ DIAN = {'wsdl-hab': 'https://vpfe-hab.dian.gov.co/WcfDianCustomerServices.svc?ws
         'catalogo': 'https://catalogo-vpfe.dian.gov.co/Document/FindDocument?documentKey={}&partitionKey={}&emissionDate={}'}
 
 class AccountInvoiceDianDocument(models.Model):
-    ''''''
-    _name = "account.invoice.dian.document"
+    _inherit = "account.invoice.dian.document"
 
-    state = fields.Selection(
-        [('draft', 'Draft'),
-         ('sent', 'Sent'),
-         ('done', 'Done'),
-         ('cancel', 'Cancel')],
-        string='State',
-        readonly=True,
-        default='draft')
-    invoice_id = fields.Many2one(
-        'account.move',
-        string='Invoice')
-    company_id = fields.Many2one(
-        'res.company',
-        string='Company')
-    invoice_url = fields.Char(string='Invoice Url')
-    # cufe_cude_uncoded = fields.Char(string='CUFE/CUDE Uncoded')
-    cufe_cude = fields.Char(string='CUFE')
-    cude = fields.Char(string='CUDE')
-    # software_security_code_uncoded = fields.Char(string='SoftwareSecurityCode Uncoded')
-    software_security_code = fields.Char(string='SoftwareSecurityCode')
-    xml_filename = fields.Char(string='XML Filename')
-    xml_file = fields.Binary(string='XML File')
-    xml_file_send_comfiar = fields.Binary(string='XML File Send to Comfiar')
-    zipped_filename = fields.Char(string='Zipped Filename')
-    zipped_file = fields.Binary(string='Zipped File')
-    # zip_key = fields.Char(string='ZipKey')
-    mail_sent = fields.Boolean(string='Mail Sent?')
     # ar_xml_filename = fields.Char(string='ApplicationResponse XML Filename')
     # ar_xml_file = fields.Binary(string='ApplicationResponse XML File')
     # get_status_zip_status_code = fields.Selection(
@@ -87,16 +59,9 @@ class AccountInvoiceDianDocument(models.Model):
     #     string='StatusCode',
     #     default=False)
     # get_status_zip_response = fields.Text(string='Response')
-    qr_image = fields.Binary("QR Code", compute='_generate_qr_code')
-    dian_document_line_ids = fields.One2many(
-        comodel_name='account.invoice.dian.document.line',
-        inverse_name='dian_document_id',
-        string='DIAN Document Lines')
-    profile_execution_id = fields.Selection(
-        string='Destination Environment of Document',
-        related='company_id.profile_execution_id',
-        store=False)
     # INFO TRANSACCION
+    cude = fields.Char(string='CUDE')
+    xml_file_send_comfiar = fields.Binary(string='XML File Send to Comfiar')
     prefix = fields.Char(string='Prefix')
     nroCbte = fields.Char(string='Number Document')
     comf_type_account = fields.Selection(
@@ -382,7 +347,8 @@ class AccountInvoiceDianDocument(models.Model):
         in_refund_sent = self.company_id.in_refund_sent
         zip_sent = out_invoice_sent + out_refund_sent + in_refund_sent
 
-        _logger.info('impresion')
+        _logger.info('impresion comfiar')
+        _logger.info('impresion comfiar')
         _logger.info(self.invoice_id.refund_type)
 
         if self.invoice_id.type == 'out_invoice':
@@ -391,7 +357,7 @@ class AccountInvoiceDianDocument(models.Model):
         elif self.invoice_id.type == 'out_refund' and self.invoice_id.refund_type != 'debit':
             xml_filename_prefix = 'nc'
             dddddddd = str(out_refund_sent + 1).zfill(8)
-        elif self.invoice_id.type == 'out_refund' and self.invoice_id.refund_type == 'debit':
+        elif self.invoice_id.type == 'out_invoice_note' and self.invoice_id.refund_type == 'debit':
             xml_filename_prefix = 'nd'
             dddddddd = str(out_refund_sent + 1).zfill(8)
 
@@ -418,10 +384,10 @@ class AccountInvoiceDianDocument(models.Model):
 
 
 
-    def _get_xml_values(self, ClTec):
+    def _comf_get_xml_values(self, ClTec):
         msg7 = _('The Incoterm is not defined for this export type invoice')
 
-        active_dian_resolution = self.invoice_id._get_active_dian_resolution()
+        active_dian_resolution = self.invoice_id._comf_get_active_dian_resolution()
         einvoicing_taxes = self.invoice_id._get_einvoicing_taxes()
         _logger.info(self.invoice_id.create_date)
         date_format = str(self.invoice_id.create_date)[0:19]
@@ -519,7 +485,7 @@ class AccountInvoiceDianDocument(models.Model):
         _logger.info('lo q envia')
         _logger.info(self.invoice_id.payment_mean_code_id)
         return {
-            'codDoc': self.type_account,
+            'codDoc': self.comf_type_account,
             'nroCbte': self._get_nroCbte()['nroCbte'],
             'puntoDeVentaId': active_dian_resolution['puntoDeVentaId'],
             'DocOrigin': self.invoice_id.invoice_origin or '',
@@ -574,7 +540,7 @@ class AccountInvoiceDianDocument(models.Model):
 
     def __comf_get_invoice_values(self):
         _logger.info('***invoice_values pre_xml_values')
-        xml_values = self._get_xml_values(False)
+        xml_values = self._comf_get_xml_values(False)
         _logger.info('***invoice_values pos_xml_values')
         #Punto 14.1.5.1. del anexo tecnico version 1.8
         #10 Estandar *
@@ -582,7 +548,7 @@ class AccountInvoiceDianDocument(models.Model):
         #11 Mandatos
         #xml_values['CustomizationID'] = '10'
         xml_values['CustomizationID'] = self.invoice_id.operation_type
-        active_dian_resolution = self.invoice_id._get_active_dian_resolution()
+        active_dian_resolution = self.invoice_id._comf_get_active_dian_resolution()
 
         xml_values['InvoiceControl'] = active_dian_resolution
         #Tipos de factura
@@ -600,14 +566,14 @@ class AccountInvoiceDianDocument(models.Model):
 
 
     # def _get_attachment_values(self):
-    #     xml_values = self._get_xml_values(False)
+    #     xml_values = self._comf_get_xml_values(False)
     #     #Punto 14.1.5.1. del anexo tecnico version 1.8
     #     #10 Estandar *
     #     #09 AIU
     #     #11 Mandatos
     #     #xml_values['CustomizationID'] = '10'
     #     xml_values['CustomizationID'] = self.invoice_id.operation_type
-    #     active_dian_resolution = self.invoice_id._get_active_dian_resolution()
+    #     active_dian_resolution = self.invoice_id._comf_get_active_dian_resolution()
     #     xml_values['InvoiceControl'] = active_dian_resolution
     #     #Tipos de factura
     #     #Punto 14.1.3 del anexo tecnico version 1.8
@@ -633,7 +599,7 @@ class AccountInvoiceDianDocument(models.Model):
     #     ClTec = False
     #     if not sequence:
     #         raise UserError(msg1 % self.invoice_id.journal_id.name)
-    #     active_dian_resolution = self.invoice_id._get_active_dian_resolution()
+    #     active_dian_resolution = self.invoice_id._comf_get_active_dian_resolution()
     #     if self.invoice_id.invoice_type_code in ('01', '02'):
     #         ClTec = active_dian_resolution['technical_key']
     #         if not ClTec:
@@ -644,7 +610,7 @@ class AccountInvoiceDianDocument(models.Model):
     #     else:
     #         if sequence.dian_type != 'contingency_checkbook_e-invoicing':
     #             raise UserError(msg4 % self.invoice_id.journal_id.name)
-    #     xml_values = self._get_xml_values(ClTec)
+    #     xml_values = self._comf_get_xml_values(ClTec)
     #     xml_values['InvoiceControl'] = active_dian_resolution
     #     # Tipos de operacion
     #     # Punto 14.1.5.1. del anexo tecnico version 1.8
@@ -664,11 +630,15 @@ class AccountInvoiceDianDocument(models.Model):
 
 
     def __comf_get_credit_note_values(self):
-        xml_values = self._get_xml_values(False)
+        xml_values = self._comf_get_xml_values(False)
         # xml_values.update(Prefix = self._get_nroCbte()['prefix'])
+        _logger.info('credit comfiar')
+        _logger.info('credit comfiar')
+        _logger.info('credit comfiar')
+        _logger.info('credit comfiar')
 
         if self.invoice_id.operation_type == '10' or self.invoice_id.reversed_entry_id:
-            billing_reference = self.invoice_id._get_billing_reference()
+            billing_reference = self.invoice_id._comf__get_billing_reference()
         else:
             billing_reference = False
 
@@ -709,11 +679,11 @@ class AccountInvoiceDianDocument(models.Model):
 
 
     def __comf_get_debit_note_values(self):
-        xml_values = self._get_xml_values(False)
+        xml_values = self._comf_get_xml_values(False)
         # xml_values.update(Prefix = self._get_nroCbte()['prefix'])
         
         if self.invoice_id.operation_type == '10' or self.invoice_id.reversed_entry_id:
-            billing_reference = self.invoice_id._get_billing_reference()
+            billing_reference = self.invoice_id._comf__get_billing_reference()
         else:
             billing_reference = False
 
@@ -759,7 +729,7 @@ class AccountInvoiceDianDocument(models.Model):
     #     msg = _("Your journal: %s, has no a credit note sequence")
     #     if not self.invoice_id.journal_id.refund_sequence_id:
     #         raise UserError(msg % self.invoice_id.journal_id.name)
-    #     xml_values = self._get_xml_values(False)
+    #     xml_values = self._comf_get_xml_values(False)
     #     # Punto 14.1.5.2. del anexo tecnico version 1.8
     #     # 20 Nota Crédito que referencia una factura electrónica.
     #     # 22 Nota Crédito sin referencia a facturas*.
@@ -769,7 +739,7 @@ class AccountInvoiceDianDocument(models.Model):
     #     # Punto 14.1.3 del anexo tecnico version 1.8
     #     # 91 Nota Crédito
     #     xml_values['CreditNoteTypeCode'] = '91'
-    #     billing_reference = self.invoice_id._get_billing_reference()
+    #     billing_reference = self.invoice_id._comf__get_billing_reference()
     #     xml_values['BillingReference'] = billing_reference
     #     xml_values['DiscrepancyReferenceID'] = billing_reference['ID']
     #     xml_values['DiscrepancyResponseCode'] = self.invoice_id.discrepancy_response_code_id.code
@@ -782,7 +752,7 @@ class AccountInvoiceDianDocument(models.Model):
     #     msg = _("Your journal: %s, has no a credit note sequence")
     #     if not self.invoice_id.journal_id.refund_sequence_id:
     #         raise UserError(msg % self.invoice_id.journal_id.name)
-    #     xml_values = self._get_xml_values(False)
+    #     xml_values = self._comf_get_xml_values(False)
     #     # Punto 14.1.5.3. del anexo tecnico version 1.8
     #     # 30 Nota Débito que referencia una factura electrónica.
     #     # 32 Nota Débito sin referencia a facturas*.
@@ -794,7 +764,7 @@ class AccountInvoiceDianDocument(models.Model):
     #     # TODO: Parece que este valor se informa solo en la factura de venta
     #     # parece que en exportaciones
     #     # xml_values['DebitNoteTypeCode'] = '92'
-    #     billing_reference = self.invoice_id._get_billing_reference()
+    #     billing_reference = self.invoice_id._comf__get_billing_reference()
     #     xml_values['BillingReference'] = billing_reference
     #     xml_values['DiscrepancyReferenceID'] = billing_reference['ID']
     #     xml_values['DiscrepancyResponseCode'] = self.invoice_id.discrepancy_response_code_id.code
@@ -841,7 +811,7 @@ class AccountInvoiceDianDocument(models.Model):
                 xml_without_signature = global_functions.get_template_xml(
                     self.__comf_get_credit_note_values(),
                     'CreditNote')
-        elif self.invoice_id.type == "out_refund" and self.invoice_id.refund_type == "debit":
+        elif self.invoice_id.type == "out_invoice_note" and self.invoice_id.refund_type == "debit":
             if self.company_id.comfiar_send_mail:
                 xml_without_signature = global_functions.get_template_xml(
                     self.__comf_get_debit_note_values(),
@@ -1118,7 +1088,9 @@ class AccountInvoiceDianDocument(models.Model):
         if not journal:
             journal = self.invoice_id.journal_id
         if not type_invoice:
-            type_invoice = self.type_account
+            type_invoice = self.comf_type_account
+        _logger.info('sequence')
+        _logger.info(type_invoice)
 
         sequence = journal.sequence_id
         if type_invoice in ('04', 'credit'):
@@ -1231,7 +1203,7 @@ class AccountInvoiceDianDocument(models.Model):
             'XML': '<![CDATA[' + xml_str + ']]>', # XML
             'cuitAProcesar': self.company_id.partner_id.identification_document,  # cuitAProcesar = NIT
             'puntoDeVentaId': puntoDeVentaId,    # puntoDeVentaId
-            'tipoDeComprobanteId': self.type_account,    # tipoDeComprobanteId
+            'tipoDeComprobanteId': self.comf_type_account,    # tipoDeComprobanteId
             'formatoId': self.company_id.formatoId,  # formatoId
             'SesionId': self.company_id.sesion_id, # %stoken/%SesionId
             'FechaVencimiento': self.company_id.date_due_sesion, # %stoken/%FechaVencimiento
@@ -1286,7 +1258,7 @@ class AccountInvoiceDianDocument(models.Model):
         else:
             result = etree.fromstring(self.transaction_response.encode('utf-8'))
             if self.invoice_id.type == 'out_invoice':
-                self.type_account = '01'
+                self.comf_type_account = '01'
         
         for element in result.iter('ID'):
             self.transaction_id = element.text
@@ -1470,7 +1442,7 @@ class AccountInvoiceDianDocument(models.Model):
         values = {
             'cuitId': self.company_id.partner_id.identification_document,
             'puntoDeVentaId': self._get_puntoDeVentaId(),
-            'tipoDeComprobanteId': self.type_account,
+            'tipoDeComprobanteId': self.comf_type_account,
             'nroCbte': self.nroCbte,
             'SesionId': self.company_id.sesion_id,
             'FechaVencimiento': self.company_id.date_due_sesion,
@@ -1548,7 +1520,7 @@ class AccountInvoiceDianDocument(models.Model):
             'transaccionId': self.transaction_id,
             'cuitId': self.company_id.partner_id.identification_document,
             'puntoDeVentaId': self._get_puntoDeVentaId(),
-            'tipoComprobanteId': self.type_account,
+            'tipoComprobanteId': self.comf_type_account,
             'numeroComprobante': self.nroCbte,
             'SesionId': self.company_id.sesion_id,
             'FechaVencimiento': self.company_id.date_due_sesion,
@@ -1615,7 +1587,7 @@ class AccountInvoiceDianDocument(models.Model):
             'transaccionId': self.transaction_id,
             'cuitId': self.company_id.partner_id.identification_document,
             'puntoDeVentaDesc': self.prefix,
-            'tipoComprobanteId': self.type_account,
+            'tipoComprobanteId': self.comf_type_account,
             'numeroComprobante': self.nroCbte,
             'SesionId': self.company_id.sesion_id,
             'FechaVencimiento': self.company_id.date_due_sesion,
@@ -1683,7 +1655,7 @@ class AccountInvoiceDianDocument(models.Model):
             'transaccionId': self.transaction_id,
             'cuitId': self.company_id.partner_id.identification_document,
             'puntoDeVentaId': self._get_puntoDeVentaId(),
-            'tipoComprobanteId': self.type_account,
+            'tipoComprobanteId': self.comf_type_account,
             'numeroComprobante': self.nroCbte,
             'SesionId': self.company_id.sesion_id,
             'FechaVencimiento': self.company_id.date_due_sesion,
@@ -1751,7 +1723,7 @@ class AccountInvoiceDianDocument(models.Model):
             'transaccionId': self.transaction_id,
             'cuitId': self.company_id.partner_id.identification_document,
             'puntoDeVentaDesc': self.prefix,
-            'tipoComprobanteId': self.type_account,
+            'tipoComprobanteId': self.comf_type_account,
             'numeroComprobante': self.nroCbte,
             'SesionId': self.company_id.sesion_id,
             'FechaVencimiento': self.company_id.date_due_sesion,
@@ -1820,7 +1792,7 @@ class AccountInvoiceDianDocument(models.Model):
             'pdf': pdf[0].decode('utf-8', 'ignore'),
             'cuitId': self.company_id.partner_id.identification_document,
             'puntoDeVentaId': self._get_puntoDeVentaId(),
-            'tipoComprobanteId': self.type_account,
+            'tipoComprobanteId': self.comf_type_account,
             'nroCbte': self.nroCbte,
             'SesionId': self.company_id.sesion_id,
             'FechaVencimiento': self.company_id.date_due_sesion,

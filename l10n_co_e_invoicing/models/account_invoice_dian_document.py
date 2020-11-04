@@ -40,7 +40,6 @@ DIAN = {'wsdl-hab': 'https://vpfe-hab.dian.gov.co/WcfDianCustomerServices.svc?ws
         'catalogo': 'https://catalogo-vpfe.dian.gov.co/Document/FindDocument?documentKey={}&partitionKey={}&emissionDate={}'}
 
 class AccountInvoiceDianDocument(models.Model):
-    ''''''
     _name = "account.invoice.dian.document"
 
     state = fields.Selection(
@@ -375,7 +374,7 @@ class AccountInvoiceDianDocument(models.Model):
         in_refund_sent = self.company_id.in_refund_sent
         zip_sent = out_invoice_sent + out_refund_sent + in_refund_sent
 
-        _logger.info('impresion')
+        _logger.info('impresion directa')
         _logger.info(self.invoice_id.refund_type)
 
         if self.invoice_id.type == 'out_invoice':

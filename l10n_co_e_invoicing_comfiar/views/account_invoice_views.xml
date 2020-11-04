@@ -11,29 +11,29 @@
                 <field name="send_invoice_to_dian" invisible="1"/>
                     <!-- attrs="{'invisible': [('type', 'not in', ('out_invoice','out_refund'))],'!required': [('type', '!=', 'out_invoice')]}"/> -->
                 <field name="operation_type" string="Tipo Operacion"
-                    attrs="{'invisible': [('type', 'not in', ('out_invoice','out_refund'))],'!required': [('type', '!=', 'out_invoice')]}"
+                    attrs="{'invisible': [('type', 'not in', ('out_invoice','out_refund','out_invoice_note'))],'!required': [('type', '!=', 'out_invoice')]}"
                     />
                 <field name="invoice_type_code"
-                    attrs="{'invisible': [('type', 'not in', ('out_invoice','out_refund'))],'!required': [('type', '!=', 'out_invoice')]}"
+                    attrs="{'invisible': [('type', 'not in', ('out_invoice','out_refund','out_invoice_note'))],'!required': [('type', '!=', 'out_invoice')]}"
                     />
                 <field name="is_invoice_out_odoo"
-                    attrs="{'invisible': ['|',('type', 'not in', ('out_invoice','out_refund')),('operation_type', 'not in', ('20','30'))],'!required': [('type', '!=', 'out_invoice')]}"
+                    attrs="{'invisible': ['|',('type', 'not in', ('out_invoice','out_refund','out_invoice_note')),('operation_type', 'not in', ('20','30'))],'!required': [('type', '!=', 'out_invoice')]}"
                     />
                 <field name="id_invoice_refound"
-                    attrs="{'invisible': ['|',('type', 'not in', ('out_invoice','out_refund')),('is_invoice_out_odoo', '==', False)],'!required': [('type', '!=', 'out_invoice')]}"
+                    attrs="{'invisible': ['|',('type', 'not in', ('out_invoice','out_refund','out_invoice_note')),('is_invoice_out_odoo', '==', False)],'!required': [('type', '!=', 'out_invoice')]}"
                     />
                 <field name="uuid_invoice"
-                    attrs="{'invisible': ['|',('type', 'not in', ('out_invoice','out_refund')),('is_invoice_out_odoo', '==', False)],'!required': [('type', '!=', 'out_invoice')]}"
+                    attrs="{'invisible': ['|',('type', 'not in', ('out_invoice','out_refund','out_invoice_note')),('is_invoice_out_odoo', '==', False)],'!required': [('type', '!=', 'out_invoice')]}"
                     />
                 <field name="issue_date_invoice"
-                    attrs="{'invisible': ['|',('type', 'not in', ('out_invoice','out_refund')),('is_invoice_out_odoo', '==', False)],'!required': [('type', '!=', 'out_invoice')]}"
+                    attrs="{'invisible': ['|',('type', 'not in', ('out_invoice','out_refund','out_invoice_note')),('is_invoice_out_odoo', '==', False)],'!required': [('type', '!=', 'out_invoice')]}"
                     />
                 <field name="customizationid_invoice" invisible="1"
                     />
             </xpath>
 
             <xpath expr="//notebook" position="inside">
-                <page name="einvoicing" string="E-Invoicing" attrs="{'invisible': [('type', 'not in', ('out_invoice','out_refund'))]}">
+                <page name="einvoicing" string="E-Invoicing" attrs="{'invisible': [('type', 'not in', ('out_invoice','out_refund','out_invoice_note'))]}">
                     <field name="dian_document_lines" mode="tree">
                         <tree string="DIAN Documents" create="0" edit="0">
                             <field name="cufe_cude"/>
